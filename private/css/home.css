@@ -158,6 +158,8 @@ body{
   font-size: 16px;
 }
 .upload-icon{
+  border-radius: 40px;
+  background-color:rgba(88, 89, 92, 0.75);
   z-index: 1000;
   bottom:15%;
   position: fixed;
