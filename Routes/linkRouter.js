@@ -1,10 +1,10 @@
 const express=require('express');
 const router=express.Router();
-const isAuth = require('../Middleware/isAuth').isAuthFeatures;
+const {isAuth,Features} = require('../Middleware/isAuth');
 const mongoose=require('mongoose');
 const Link=require('../models/link');
 
-router.post('/uploadLink',isAuth,(req,res,next)=>{
+router.post('/uploadLink',Features,(req,res,next)=>{
     const link={
       Link:req.body.Link,
       LinkType:req.body.LinkType,
