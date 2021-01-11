@@ -13,7 +13,7 @@ router.post('/uploadLink',Features,(req,res,next)=>{
       Topic:req.body.Topic,
       Description:req.body.Description
   };
-    Link.insertMany(link)
+    Link.create(link)
         .then(result=>{
           console.log(result);
           console.log("Succesfully Inserted");

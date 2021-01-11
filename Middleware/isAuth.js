@@ -3,7 +3,7 @@ module.exports = {
       if (req.isAuthenticated()) {
         return next()
       } else {
-        res.redirect('/home')
+        res.redirect('/SignIn.html')
       }
     },
     Features: function (req, res, next) {
@@ -12,6 +12,7 @@ module.exports = {
             status:"Please sign-in to use"
         });
       } else {
+        next();
         console.log('Signed in')
       }
     }

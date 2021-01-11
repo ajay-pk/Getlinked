@@ -3,6 +3,7 @@ const passport=require('passport');
 const dbconnection=require('./db')
 const keys = require('../.gitignore/keys');
 const User = require('../models/user')
+const mongoose=require('mongoose');
 
 module.exports = function (passport) {
   passport.use(
@@ -12,26 +13,45 @@ module.exports = function (passport) {
         clientSecret: keys.Google.clientSecret,
         callbackURL: 'http://localhost:3000/login/callback',
       },
-      async (accessToken, refreshToken, profile, done) => {
-        const newUser = {
-          googleId: profile.id,
-          displayName: profile.displayName,
-          firstName: profile.name.givenName,
-          lastName: profile.name.familyName,
-          image: profile.photos[0].value,
-        }
+      (accessToken, refreshToken, profile, done) => {
+        // const newUser = {
+        //   googleId: profile.id,
+        //   displayName: profile.displayName,
+        //   firstName: profile.name.givenName,
+        //   lastName: profile.name.familyName,
+        //   image: profile.photos[0].value,
+        // }
         console.log(profile);
 
         try {
-          let user = await User.findOne({ googleId: profile.id })
+          // let googleId=mongoose.Types.ObjectId(newUser.googleId).toHexString;
+          // console.log(googleId)
+          User.findOne({ googleId:profile.id })
+              .then(user=>{
+                if(user){
+                  done(null, user);
+                }
+                else{
+                  new User({
+                    googleId: profile.id,
+                    displayName: profile.displayName,
+                    firstName: profile.name.givenName,
+                    lastName: profile.name.familyName,
+                    image: profile.photos[0].value,
+                  }).save().then((newUser) =>{
+                    done(null, newUser);
+                  })
+                }
 
-          if (user) {
-             console.log('user present')
-            return done(null, user)
-          } else {
-            user = await User.create(newUser)
-            return done(null, user)
-          }
+              })
+
+          // if (user) {
+          //    console.log('user present')
+          //   return done(null, user)
+          // } else {
+          //   user = await User.create(newUser)
+          //   return done(null, user)
+          // }
         } catch (err) {
           console.error(err)
         }
@@ -45,6 +65,8 @@ module.exports = function (passport) {
   })
 
   passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user))
-  })
+    User.findById(id).then(user => {
+      return done(null, user);
+    });
+  });
 }

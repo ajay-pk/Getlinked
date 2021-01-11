@@ -2,30 +2,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="415633166414-lan5ms0iohmjo8u0f2l3f1tpqhpkb585.apps.googleusercontent.com">
     <title>Document</title>
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
-    <script>
-    function onSignIn(googleUser) {
-        var id_token = googleUser.getAuthResponse().id_token;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://http:localhost:3000/auth');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-        console.log('Signed in as: ' + xhr.responseText);
-};
-xhr.send('idtoken=' + id_token);
-};
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  };
-    </script>
-   <script src="https://apis.google.com/js/platform.js" async defer></script> 
+  <h1>Home<h1><br>
+    <div>Welcome to Getlinked</div><br>
+    <a href="http://localhost:3000/login">Sign In with Google</a><br>
+    <a href="http://localhost:3000/logout">Log out</a>
+    <div>
+      <h3>Suggested Links</h3>
+      <p id="getLink">
+
+      </p>
+    </div>
+    <div>
+      <form action="http://localhost:3000/uploadLink" method="POST">
+        Paste the Links Here:<input type="url" name="Link"><br>
+        Link Type:<input type="text" name="LinkType"><br>
+        Department:<input type="text" name="Department"><br>
+        SubjectName:<input type="text" name="SubjectName"><br>
+        Topic:<input type="text" name="Topic"><br>
+        Description:<input type="text" name="Description"><br>
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+
+  <script>
+    async function getLink(url){
+      const response= await fetch(url,{
+        method:'GET'
+
+      });
+      return response.json();
+    }
+
+    getLink('http://localhost:3000/getLink')
+          .then(data=>{
+            console.log(data);
+            
+          })
+          .catch(err=>{
+            console.log('Failed to get links in Front end');
+          })
+  </script>
+
 </body>
 </html>

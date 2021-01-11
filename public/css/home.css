@@ -112,7 +112,7 @@ body{
   padding: 10px 0px;
   margin: 32px auto 100px auto;
   width: 63%;
-  height: 100%;
+  height: 53%;
   overflow: visible;
   background-color: #2a2f32;
   border-radius: 25px;
@@ -134,7 +134,7 @@ body{
   margin: 10px auto;
   flex-shrink: 0;
   width: 95%;
-  height: 100%;
+  height: 80px;
   overflow: visible;
   background-color: #58595c;
   opacity: 0.8;
@@ -143,7 +143,6 @@ body{
 .card-suggestion:hover{
   opacity: 0.7;
 }
-
 .save-suggestion, .info-suggestion{
   padding: 10px;
 }
@@ -158,14 +157,9 @@ body{
   line-height: 1.2;
   font-size: 16px;
 }
-.card-d-1, .card-d-2, .card-d-3{
-  display: flex;
-  justify-content:center; 
-  align-items: center;
-  color: #e3d8d8;
-  padding:4px 0px;
-}
 .upload-icon{
+  border-radius: 40px;
+  background-color:rgba(88, 89, 92, 0.75);
   z-index: 1000;
   bottom:15%;
   position: fixed;
