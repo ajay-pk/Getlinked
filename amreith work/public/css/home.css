@@ -1,0 +1,340 @@
+body{
+  background-color: #000000;
+}
+.back-cover {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+}
+.right-container{
+  width: 18%;
+  height: 200px;
+  /* background-color: #58595c; */
+}
+.user-details{
+  display: none;
+  border-radius: 10px;
+  /* height: 300px; */
+  width: 90%;
+  background-color: #2a2f32;
+  margin:30px auto;
+}
+.user-details a{
+  
+  color: #BEBDBE;
+  padding: 10px;
+  display: flex;
+  /* margin: 10px 0px; */
+  /* vertical-align: middle; */
+  justify-content: center;
+  align-items: center; 
+}
+.user-details a:hover{
+  text-decoration: none;
+  background-color: #BEBDBE;
+  color: #2a2f32;
+}
+.just-line{
+  width: 50%;
+  margin: 0px none;
+  background-color: #BEBDBE;
+}
+.left-container{
+  width: 18%;
+  height: 200px;
+  /* background-color: #58595c; */
+}
+.navigation {
+  /* opacity: 0.8; */
+  z-index: 1000;
+  background-color: #000000;
+  /* position: fixed; */
+  padding: 27px 0px;
+  width: 100%;
+  height: 68px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: visible;
+}
+
+.home-icon:hover, .bookmark-icon:hover, .search-icon:hover, .more-icon:hover{
+  opacity: 0.6;
+}
+.logo-placer {
+  flex-shrink: 0;
+  width: 123px;
+  height: 31px;
+  overflow: visible;
+  background-color: rgba(48, 70, 84, 0.5);
+}
+.logo-name {
+  width: 97px;
+  height: 20px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+/* .user-details{
+  width: 15%;
+} */
+.search-box{
+  margin: 12px auto 0px auto;
+  display: block;
+  width: 63%;
+  height: 50px;
+  color: #F6F8F8;
+  background-color: #000000;
+  border: 1px solid #FD413C;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 8px;
+}
+.search-box:hover{
+  opacity: 0.9;
+}
+
+.more-icon svg{
+  color: #d14747;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #F6F8F8;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:#F6F8F8;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #F6F8F8;
+}
+.go-button{
+  border: none;
+  margin: 32px auto 0px auto;
+  box-sizing: border-box;
+  width: 9%;
+  height: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px 5px 0px;
+  overflow: visible;
+  background-color: #fd413c;
+  opacity: 0.8;
+  border-radius: 15px;
+}
+.go-button:hover{
+  opacity: 0.6;
+}
+.go-button:focus{
+  border: none;
+  outline: none;
+}
+.go{
+  flex-shrink: 0;
+  width: 24px;
+  height: 20px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+
+.suggestion-box{
+  padding: 10px 0px;
+  margin: 32px auto 100px auto;
+  width: 63%;
+  height: 53%;
+  overflow: visible;
+  background-color: #2a2f32;
+  border-radius: 25px;
+}
+.suggestion-title{
+  margin: 10px auto;
+  width: 109px;
+  height: 20px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  color: #d14747;
+  font-size: 16px;
+}
+.card-suggestion {
+  margin: 10px auto;
+  flex-shrink: 0;
+  width: 95%;
+  height: 80px;
+  overflow: visible;
+  background-color: #58595c;
+  opacity: 0.8;
+  border-radius: 15px;
+}
+.card-suggestion:hover{
+  opacity: 0.7;
+}
+.save-suggestion, .info-suggestion{
+  margin: 10px 10px 30px 10px;
+  padding: 5px;
+}
+.save-suggestion:hover, .info-suggestion:hover{
+  border-radius: 7px;
+  background-color: #2a2f32;
+  /* opacity: 0.4; */
+}
+.suggestion-info{
+  margin: 10px auto;
+  width: 273px;
+  height: 39px;
+  overflow: visible;
+  font-family: "Inter", sans-serif;
+  color: #e3d8d8;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-size: 16px;
+}
+.upload-icon{
+  /* border-radius: 40px; */
+  /* background-color:rgba(88, 89, 92, 0.75); */
+  z-index: 1000;
+  bottom:15%;
+  position: fixed;
+  right: 10%;
+}
+.upload-icon:hover{
+  opacity: 0.7;
+}
+.card-info{
+  text-overflow: ellipsis;
+  width: 80%;
+  margin: 0px auto;
+}
+.card-d-1, .card-d-2, .card-d-3{
+  text-overflow: ellipsis;
+  color: #BEBDBE;
+}
+.footer{
+  opacity: 0.8;
+  background-color: #000000;
+  position: fixed;
+  bottom: 0;
+  margin: 110px auto 0px auto;
+  width: 100%;
+  height: 57px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: visible;
+}
+.about{
+  width: 37px;
+  height: 15px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  color: #BEBDBE;
+  font-size: 12px;
+}
+.terms{
+  width: 39px;
+  height: 15px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  color: #BEBDBE;
+  font-size: 12px;
+}
+.help{
+  flex-shrink: 0;
+  width: 28px;
+  height: 15px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  color: #BEBDBE;
+  font-size: 12px;
+}
+.contact-us{
+  width: 67px;
+  height: 15px;
+  overflow: visible;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Poppins", serif;
+  color: #BEBDBE;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 576px){
+  .navigation{
+    height: 42px;
+  }
+  .footer{
+    height: 40px;
+  }
+  .search-box{
+    height: 40px;
+    width: 90%;
+    margin: 80px auto 0px auto;
+  }
+  .go-button{
+    width: 20%;
+  }
+  .suggestion-box{
+    width: 95%;
+  }
+  .card-suggestion{
+    height: 109px;
+  }
+  .upload-icon{
+    right: 7%;
+    bottom: 10%;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width:768px){
+  .footer{
+    height: 40px;
+  }
+  .search-box{
+    height: 50px;
+    width: 70%;
+    margin: 100px auto 0px auto;
+  }
+  .go-button{
+    width: 15%;
+  }
+  .suggestion-box{
+    width: 70%;
+  }
+  .upload-icon{
+    right: 9%;
+    bottom: 12%;
+  }
+}

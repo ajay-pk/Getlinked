@@ -1,0 +1,229 @@
+*{
+    font-family: "Poppins", serif;
+}
+body{
+    background-color: #000000;
+}
+.back-cover {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+}
+.navigation {
+    /* opacity: 0.8; */
+    z-index: 1000;
+    background-color: #000000;
+    position: fixed;
+    padding: 27px 0px;
+    width: 100%;
+    height: 68px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: visible;
+}
+.home-icon:hover, .bookmark-icon:hover, .search-icon:hover, .more-icon:hover{
+    opacity: 0.6;
+}
+.logo-placer {
+    flex-shrink: 0;
+    width: 123px;
+    height: 31px;
+    overflow: visible;
+    background-color: rgba(48, 70, 84, 0.5);
+}
+.logo-name {
+    width: 97px;
+    height: 20px;
+    overflow: visible;
+    font-family: "Inter", sans-serif;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0px;
+    line-height: 1.2;
+}
+
+.form-container{
+    margin: 10% auto 0px auto;
+    width: 90%;
+
+}
+.title-form{
+    font-size: 20px;
+    font-weight: 200;
+    font-family:"Poppins", serif; 
+    background-color: #000000;
+    padding: 10px;
+    color:#E3D8D8;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    width: 63%;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.link-container{
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #58595c;
+    width: 63%;
+    margin: 15px auto;
+}
+
+.link{
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #E3D8D8;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+}
+.required{
+    font-size: 16px;
+    color: #fd413c;
+}
+input[type=radio]{
+    margin-left: 20px;
+}
+/* input[type=radio]:focus{
+   
+} */
+input[type=text]{
+    color: #E3D8D8;
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+    background-color: #58595c;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #E3D8D8;
+}
+input[type=text]:focus{
+    border-bottom: 1px solid #fd413c;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #aaa;
+    opacity: 0.5; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #aaa;
+    opacity: 0.5;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #aaa;
+    opacity: 0.5;
+  }
+label{
+    color: #E3D8D8;
+}
+.submit{
+    width: 20%;
+    /* border-radius: 15px; */
+
+}
+.submit-icon{
+    border-radius: 15px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 5%;
+    background-color: #fd413c;
+    color: #FFFFFF;
+}
+.footer{
+opacity: 0.9;
+background-color: #000000;
+bottom: 0;
+margin: 110px auto 0px auto;
+width: 100%;
+height: 57px;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+overflow: visible;
+}
+.about{
+width: 37px;
+height: 15px;
+overflow: visible;
+font-weight: 400;
+font-style: normal;
+font-family: "Poppins", serif;
+letter-spacing: 0px;
+line-height: 1.2;
+color: #BEBDBE;
+font-size: 12px;
+}
+.terms{
+width: 39px;
+height: 15px;
+overflow: visible;
+font-weight: 400;
+font-style: normal;
+font-family: "Poppins", serif;
+letter-spacing: 0px;
+line-height: 1.2;
+color: #BEBDBE;
+font-size: 12px;
+}
+.help{
+flex-shrink: 0;
+width: 28px;
+height: 15px;
+overflow: visible;
+font-weight: 400;
+font-style: normal;
+font-family: "Poppins", serif;
+letter-spacing: 0px;
+line-height: 1.2;
+color: #BEBDBE;
+font-size: 12px;
+}
+.contact-us{
+width: 67px;
+height: 15px;
+overflow: visible;
+font-weight: 400;
+font-style: normal;
+font-family: "Poppins", serif;
+color: #BEBDBE;
+letter-spacing: 0px;
+line-height: 1.2;
+font-size: 12px;
+}
+@media only screen and (min-width: 992px) and (max-width:1200px){
+    .link-container{
+        width: 75%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width:991px){
+    .link-container{
+        width: 85%;
+    }
+
+}
+@media only screen and (min-width: 576px) and (max-width:767px){
+    .link-container{
+        width: 95%;
+    }
+
+}
+@media only screen and (min-width: 0px) and (max-width:576px){
+    .link-container{
+        width: 100%;
+    }
+    .submit{
+        width: 25%;
+    }
+
+}
