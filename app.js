@@ -6,6 +6,7 @@ const keys=require("./.gitignore/keys");
 const port=3000;
 const authRoutes=require("./Routes/authRouter");
 const linkRoutes=require('./Routes/linkRouter');
+const userRoutes=require("./Routes/userRouter")
 const connectDB= require('./config/db');
 const cors = require('cors');
 
@@ -50,6 +51,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('./public'));
 app.use(authRoutes);
+app.use(userRoutes);
 app.use(linkRoutes);
 
 
