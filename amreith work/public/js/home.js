@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip({animation: true});   
+$(function(){
+    $('[data-tooltip').tooltip({placement:'bottom'});
   });
 
 document.getElementById("user-icon").onclick = function() {displayUser()};
@@ -26,7 +26,7 @@ async function getLink(url){
 }
 
 function showData(data){
-    let template=` `
+    let template=` `    
     data.forEach(element => {
         template+=` 
         <div class="card-suggestion">
@@ -52,5 +52,29 @@ getLink(api_url)
            console.log(err);
        })
 
+const user_api="http://localhost:3000/userDetails";
+async function getUser(url){
+    const response=await fetch(url,{
+        headers: {
+         "Content-Type": "application/json"
+}
+    });
+    return response.json();
 
+}
+getUser(user_api)
+       .then(data=>{
+           console.log(data)
+           let template2=` <div><img class="profile-pic" src="${data.image}"></div>
+           <a>${data.displayName}</a>
+           <a>Email</a>
+           <a>Others</a>
+           <hr class="just-line d-none d-sm-block">
+           <a href="http://localhost:3000/logout">SignOut</a> `
+           document.getElementById("user-details").innerHTML = template2;
+       })
+       
+       .catch(err=>{
+           console.log(err);
+       })
 

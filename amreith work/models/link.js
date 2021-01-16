@@ -31,7 +31,6 @@ const LinkdetailsSchema=new mongoose.Schema({
     },
     Description:{
         type:String,
-        maxlength:[50,'Keep it Crisp']
 
     },
     uploadedAt:{

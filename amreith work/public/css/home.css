@@ -21,8 +21,10 @@ body{
   background-color: #2a2f32;
   margin:30px auto;
 }
+a:not([href]):not([class]){
+  color: #BEBDBE;
+}
 .user-details a{
-  
   color: #BEBDBE;
   padding: 10px;
   display: flex;
@@ -30,6 +32,20 @@ body{
   /* vertical-align: middle; */
   justify-content: center;
   align-items: center; 
+}
+.user-details div{
+  color: #BEBDBE;
+  padding: 10px;
+  display: flex;
+  /* margin: 10px 0px; */
+  /* vertical-align: middle; */
+  justify-content: center;
+  align-items: center;
+}
+.profile-pic{
+  width:50px;
+  height:50px;
+  border-radius: 50px;
 }
 .user-details a:hover{
   text-decoration: none;

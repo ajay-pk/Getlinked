@@ -29,37 +29,37 @@
         <div class="form-container" >
             <div class="title-form">Upload Link</div>
             <div>
-                <form action="#">
+                <form action="/uploadLink", method="POST">
                     <div class="link-container">
                         <div class="link">Link <span class="required"> *</span></div>
-                        <input type="text" placeholder="Paste the link here!" required>
+                        <input name="Link" type="text" placeholder="Paste the link here!" required>
                     </div>
                     <div class="link-container">
                         <div class="link">Link Type <span class="required"> *</span></div>
-                        <input type="radio" id="video" name="link-type" value="video">
+                        <input type="radio" id="video" name="LinkType" value="video">
                         <label for="video"> Video</label><br>
-                        <input type="radio" id="pdf" name="link-type" value="pdf">
+                        <input  type="radio" id="pdf" name="LinkType" value="pdf">
                         <label for="pdf"> PDF</label><br>
-                        <input type="radio" id=website name="link-type" value="website">
+                        <input  type="radio" id=website name="LinkType" value="website">
                         <label for="website"> Website</label><br>
-                        <input type="radio" id="other" name="link-type" value="other">
+                        <input  type="radio" id="other" name="LinkType" value="other">
                         <label for="other"> Other</label><br>
                     </div>
                     <div class="link-container">
                         <div class="link">Department <span class="required"> *</span></div>
-                        <input type="text" placeholder="eg: ECE/EEE/CSE">
+                        <input name="Department" type="text" placeholder="eg: ECE/EEE/CSE">
                     </div>
                     <div class="link-container">
                         <div class="link">Subject Name <span class="required"> *</span></div>
-                        <input type="text" placeholder="eg: Control System">
+                        <input name="SubjectName" type="text" placeholder="eg: Control System">
                     </div>
                     <div class="link-container">
                         <div class="link">Topic <span class="required"> *</span></div>
-                        <input type="text" placeholder="eg: bode plot">
+                        <input name="Topic" type="text" placeholder="eg: bode plot">
                     </div>
                     <div class="link-container">
                         <div class="link">Optional Description</div>
-                        <input type="text" placeholder="eg: This is a video of professor">
+                        <input name="Description" type="text" placeholder="eg: This is a video of professor">
                     </div>
                     <div class="link-container" style="background-color: black;">
                         <div class="key float-left" style="color: #E3D8D8;"><span class="required">*</span> - Required field</div>

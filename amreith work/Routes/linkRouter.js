@@ -17,11 +17,11 @@ router.post('/uploadLink',Features,(req,res,next)=>{
         .then(result=>{
           console.log(result);
           console.log("Succesfully Inserted");
-          res.send(result);
+          res.redirect('/submit.html');
+          
         })
         .catch(err=>{
           console.log(err);
-          res.redirect('/UserHome');
         })
   
   });
