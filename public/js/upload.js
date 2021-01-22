@@ -35,6 +35,7 @@ $( document ).ready(function() {
         }
         else if(res.status==="Successfully inserted"){
           console.log("Form is inserted, Add more")
+        
         }
         },
         error : function(e) {
@@ -43,9 +44,11 @@ $( document ).ready(function() {
         }
       });
         
-        // Reset FormData after Posting
-        resetData(formData);
-   
+        // Reset FormData after 
+        if($("input[type='checkbox']:checked")){
+          resetData(formData);
+        // console.log("toggled")
+        }
       }
       
       function resetData(data){
