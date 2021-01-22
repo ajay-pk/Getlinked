@@ -29,10 +29,10 @@
         <div class="form-container" >
             <div class="title-form">Upload Link</div>
             <div>
-                <form action="/uploadLink", method="POST">
+                <form id="dataform">
                     <div class="link-container">
                         <div class="link">Link <span class="required"> *</span></div>
-                        <input name="Link" type="text" placeholder="Paste the link here!" required>
+                        <input id="Link" type="text" placeholder="Paste the link here!" required>
                     </div>
                     <div class="link-container">
                         <div class="link">Link Type <span class="required"> *</span></div>
@@ -47,23 +47,28 @@
                     </div>
                     <div class="link-container">
                         <div class="link">Department <span class="required"> *</span></div>
-                        <input name="Department" type="text" placeholder="eg: ECE/EEE/CSE">
+                        <input id="Department" type="text" placeholder="eg: ECE/EEE/CSE">
                     </div>
                     <div class="link-container">
                         <div class="link">Subject Name <span class="required"> *</span></div>
-                        <input name="SubjectName" type="text" placeholder="eg: Control System">
+                        <input id="SubjectName" type="text" placeholder="eg: Control System">
                     </div>
                     <div class="link-container">
                         <div class="link">Topic <span class="required"> *</span></div>
-                        <input name="Topic" type="text" placeholder="eg: bode plot">
+                        <input id="Topic" type="text" placeholder="eg: bode plot">
                     </div>
                     <div class="link-container">
                         <div class="link">Optional Description</div>
-                        <input name="Description" type="text" placeholder="eg: This is a video of professor">
+                        <input id="Description" type="text" placeholder="eg: This is a video of professor">
                     </div>
                     <div class="link-container" style="background-color: black;">
                         <div class="key float-left" style="color: #E3D8D8;"><span class="required">*</span> - Required field</div>
                         <div class="submit float-right"><button class="submit-icon">Submit</button></div>
+                        <div class="toggle-info float-right">(To add more links, toggle)</div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                     
                 </form>
@@ -79,8 +84,9 @@
     </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="js/upload.js"></script>
     
     
 </body>
