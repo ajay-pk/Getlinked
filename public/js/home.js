@@ -1,3 +1,4 @@
+//Html page work for Home
 $(function(){
     $('[data-tooltip').tooltip({placement:'bottom'});
   });
@@ -13,7 +14,7 @@ function displayUser() {
     }
   }
 
-
+//To get the Link data using the api 
 const api_url="http://localhost:3000/getLink";
 async function getLink(url){
     const response=await fetch(url,{
@@ -51,7 +52,7 @@ getLink(api_url)
        .catch(err=>{
            console.log(err);
        })
-
+//To get the User details using user api
 const user_api="http://localhost:3000/userDetails";
 async function getUser(url){
     const response=await fetch(url,{

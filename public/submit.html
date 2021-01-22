@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Linked</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/submit.css">
+
+</head>
+<body>
+    <div class="back-cover">
+        <div class="navigation">
+            <a href="home.html"><img src="images/icons/home page/home.svg" class="home-icon d-none d-sm-block"></a>
+            <img src="images/icons/home page mobile/home.svg" class="home-icon d-block d-sm-none">
+            <img src="images/icons/home page/bookmark.svg" class="bookmark-icon d-none d-sm-block">
+            <img src="images/icons/home page mobile/bookmark.svg" class="bookmark-icon d-block d-sm-none">
+            <div class="logo-placer">
+                <div class="logo-name">Get-Linked</div>
+            </div>
+            <img src="images/icons/home page/search (1).svg" class="search-icon d-none d-sm-block">
+            <img src="images/icons/home page mobile/search.svg" class="search-icon d-block d-sm-none">
+            <img src="images/icons/home page/more-vertical.svg" class="more-icon d-none d-sm-block">
+            <img src="images/icons/home page mobile/more-vertical.svg" class="more-icon d-block d-sm-none">
+        </div>
+
+        <div class="form-container" >
+            <div class="title-form">Upload Link</div>
+            <div>
+                <form id="dataform">
+                    <div class="link-container">
+                        <div class="link">Link <span class="required"> *</span></div>
+                        <input id="Link" type="text" placeholder="Paste the link here!" required>
+                    </div>
+                    <div class="link-container">
+                        <div class="link">Link Type <span class="required"> *</span></div>
+                        <input type="radio" id="video" name="LinkType" value="video">
+                        <label for="video"> Video</label><br>
+                        <input  type="radio" id="pdf" name="LinkType" value="pdf">
+                        <label for="pdf"> PDF</label><br>
+                        <input  type="radio" id=website name="LinkType" value="website">
+                        <label for="website"> Website</label><br>
+                        <input  type="radio" id="other" name="LinkType" value="other">
+                        <label for="other"> Other</label><br>
+                    </div>
+                    <div class="link-container">
+                        <div class="link">Department <span class="required"> *</span></div>
+                        <input id="Department" type="text" placeholder="eg: ECE/EEE/CSE">
+                    </div>
+                    <div class="link-container">
+                        <div class="link">Subject Name <span class="required"> *</span></div>
+                        <input id="SubjectName" type="text" placeholder="eg: Control System">
+                    </div>
+                    <div class="link-container">
+                        <div class="link">Topic <span class="required"> *</span></div>
+                        <input id="Topic" type="text" placeholder="eg: bode plot">
+                    </div>
+                    <div class="link-container">
+                        <div class="link">Optional Description</div>
+                        <input id="Description" type="text" placeholder="eg: This is a video of professor">
+                    </div>
+                    <div class="link-container" style="background-color: black;">
+                        <div class="key float-left" style="color: #E3D8D8;"><span class="required">*</span> - Required field</div>
+                        <div class="submit float-right"><button class="submit-icon">Submit</button></div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a class="about">About</a>
+            <a class="terms">Terms</a>
+            <a class="help">Help</a>
+            <a class="contact-us">Contact us</a>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/upload.js"></script>
+    
+    
+</body>
+</html>
