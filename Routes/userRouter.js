@@ -5,7 +5,7 @@ const mongoose=require('mongoose');
 const User=require('../models/user');
 
 router.get('/userDetails',Features,(req,res,next)=>{
-      User.find({googleId:req.user.googleId})
+      User.findOne({googleId:req.user.googleId})
           .then(userDetail=>{
               res.json(userDetail);
 
