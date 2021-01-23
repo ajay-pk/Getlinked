@@ -1,17 +1,17 @@
-$(function(){
-    $('[data-tooltip').tooltip({placement:'bottom'});
-  });
+// $(function(){
+//     $('[data-tooltip').tooltip({placement:'bottom'});
+//   });
 
-document.getElementById("user-icon").onclick = function() {displayUser()};
-function displayUser() {
-    var element = document.getElementById("user-details");
-    if(element.style.display == "none"){
-        element.style.display = "block";
-    }
-    else{
-        element.style.display = "none";
-    }
-  }
+// document.getElementById("user-icon").onclick = function() {displayUser()};
+// function displayUser() {
+//     var element = document.getElementById("user-details");
+//     if(element.style.display == "none"){
+//         element.style.display = "block";
+//     }
+//     else{
+//         element.style.display = "none";
+//     }
+//   }
 
 
 const api_url="http://localhost:3000/getLink";
@@ -32,11 +32,12 @@ function showData(data){
         <div class="card-suggestion">
         <img class="save-suggestion float-left" src="images/icons/home page/bookmark for card suggestion.svg">
         <img class="info-suggestion float-right" src="images/icons/home page/info.svg">
-            <div class="card-info">
-                <div class="card-d-1">${element.Department}</div>
-                <div class="card-d-2 ">${element.SubjectName}</div>
-                <div class="card-d-3 ">${element.Topic}</div>
+            <a href="${element.Link}" target="_blank"><div class="card-info">
+                ${element.Department}<br>
+                ${element.SubjectName}<br>
+                ${element.Topic}
             </div>
+            </a>
         </div>`
 
     });
@@ -65,12 +66,20 @@ async function getUser(url){
 getUser(user_api)
        .then(data=>{
            console.log(data)
-           let template2=` <div><img class="profile-pic" src="${data.image}"></div>
+           let template2 =` `
+           if(data.status==="Please sign-in to use"){
+            
+            template2 = `<div>Want perks of Get-Linked?</div>
+            <a href="SignIn.html">Log-In</a>`
+           }
+           else{
+           template2=` <div><img class="profile-pic" src="${data.image}"></div>
            <a>${data.displayName}</a>
            <a>Email</a>
            <a>Others</a>
            <hr class="just-line d-none d-sm-block">
            <a href="http://localhost:3000/logout">SignOut</a> `
+           }
            document.getElementById("user-details").innerHTML = template2;
        })
        
