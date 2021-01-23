@@ -21,9 +21,6 @@ body{
   background-color: #2a2f32;
   margin:30px auto;
 }
-a:not([href]):not([class]){
-  color: #BEBDBE;
-}
 .user-details a{
   color: #BEBDBE;
   padding: 10px;
@@ -62,6 +59,33 @@ a:not([href]):not([class]){
   height: 200px;
   /* background-color: #58595c; */
 }
+.left-container form{
+  width: 90%;
+  padding: 20px;
+  margin: 30px auto 0px auto;
+  background-color: #2a2f32;
+  border-radius: 15px;
+  color: #BEBDBE;
+}
+.left-container form label{
+  margin-bottom: 20px;
+}
+.left-container form select{
+  border: none;
+  outline: none;
+  background-color: #2a2f32;
+  color: #BEBDBE;
+}
+.left-container form input{
+  padding: 3px 0px 3px 0px;
+  float: right;
+  width: 45%;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  background-color:#FD413C;
+  color: white;
+}
 .navigation {
   /* opacity: 0.8; */
   z-index: 1000;
@@ -69,25 +93,51 @@ a:not([href]):not([class]){
   /* position: fixed; */
   padding: 27px 0px;
   width: 100%;
-  height: 68px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   overflow: visible;
 }
+.navigation a span{
+  position: absolute;
+  bottom: 0;
+  padding:5px;
+}
+.navigation a{
+  position: relative;
+  padding:5px;
+  color: #BEBDBE;
+  font-size: 20px;
+}
+.navigation a:hover{
+  border-bottom: 2px solid #BEBDBE;
+  
+}
+.navigation a img{
+  /* font-size: 10px; */
+  float: left;
+}
 
-.home-icon:hover, .bookmark-icon:hover, .search-icon:hover, .more-icon:hover{
-  opacity: 0.6;
-}
-.logo-placer {
+/* .logo-placer {
+  outline: none;
+  padding-top: 5px;
   flex-shrink: 0;
-  width: 123px;
-  height: 31px;
-  overflow: visible;
-  background-color: rgba(48, 70, 84, 0.5);
+  /* width: 400px;
+  height: 100px; */
+  /* overflow: visible; */
+/* } */ 
+.logo-placer img{
+  outline: none;
+  border: none;
 }
-.logo-name {
+.logo{
+  float: left;
+  width: 200px;
+  height: 100px;
+}
+/* .logo-name {
   width: 97px;
   height: 20px;
   overflow: visible;
@@ -96,7 +146,7 @@ a:not([href]):not([class]){
   font-size: 16px;
   letter-spacing: 0px;
   line-height: 1.2;
-}
+} */
 /* .user-details{
   width: 15%;
 } */
@@ -167,16 +217,36 @@ a:not([href]):not([class]){
   letter-spacing: 0px;
   line-height: 1.2;
 }
-
-.suggestion-box{
-  padding: 10px 0px;
-  margin: 32px auto 100px auto;
+.suggestion-outer-box{
+  margin: 0px auto;
   width: 63%;
-  height: 53%;
-  overflow: visible;
-  background-color: #2a2f32;
+  padding: 10px 0px;
+  background-color:#2a2f32;
   border-radius: 25px;
 }
+.suggestion-box{
+  padding: 15px 0px;
+  margin: 10px auto 10px auto;
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  background-color: #2a2f32;
+  /* border-radius: 25px; */
+}
+::-webkit-scrollbar {
+  width: 4px;  
+  background: transparent;  
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: #58595c;
+}
+/* .empty-suggestion{
+  height: 400px;
+  width: 90%;
+  margin: 10px auto;
+  background-color: #2a2f32;
+} */
 .suggestion-title{
   margin: 10px auto;
   width: 109px;
@@ -191,13 +261,15 @@ a:not([href]):not([class]){
   font-size: 16px;
 }
 .card-suggestion {
-  margin: 10px auto;
+  /* background: linear-gradient(to left top,#041444,#003350); */
+  cursor: pointer;
+  margin: 0px auto 10px auto ;
   flex-shrink: 0;
   width: 95%;
   height: 80px;
   overflow: visible;
   background-color: #58595c;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   border-radius: 15px;
 }
 .card-suggestion:hover{
@@ -213,8 +285,8 @@ a:not([href]):not([class]){
   /* opacity: 0.4; */
 }
 .suggestion-info{
-  margin: 10px auto;
-  width: 273px;
+  margin: 20px auto;
+  width: 225px;
   height: 39px;
   overflow: visible;
   font-family: "Inter", sans-serif;
@@ -223,6 +295,12 @@ a:not([href]):not([class]){
   line-height: 1.2;
   font-size: 16px;
 }
+.suggestion-info a{
+    /* background-color: #d14747; */
+  color: #d14747;
+  cursor: pointer;
+}
+
 .upload-icon{
   /* border-radius: 40px; */
   /* background-color:rgba(88, 89, 92, 0.75); */
@@ -234,6 +312,9 @@ a:not([href]):not([class]){
 .upload-icon:hover{
   opacity: 0.7;
 }
+.card-suggestion a:hover{
+  text-decoration: none;
+}
 .card-info{
   text-overflow: ellipsis;
   width: 80%;
@@ -244,9 +325,9 @@ a:not([href]):not([class]){
   color: #BEBDBE;
 }
 .footer{
-  opacity: 0.8;
+  opacity: 1;
   background-color: #000000;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   margin: 110px auto 0px auto;
   width: 100%;
@@ -306,6 +387,21 @@ a:not([href]):not([class]){
   line-height: 1.2;
   font-size: 12px;
 }
+.footer a{
+  border-radius: 15px;
+  padding-top: 5px;
+  text-align: center;
+  /* width: 10%; */
+  /* height: 80%; */
+  margin: 0px auto;
+  /* background-color: #d14747; */
+}
+.footer a:hover{
+  pointer-events: initial;
+  text-decoration: none;
+  color: #d14747;
+  /* background-color: #58595c; */
+}
 
 @media only screen and (max-width: 576px){
   .navigation{
@@ -317,11 +413,14 @@ a:not([href]):not([class]){
   .search-box{
     height: 40px;
     width: 90%;
-    margin: 80px auto 0px auto;
+    margin: 0px auto 0px auto;
   }
   .go-button{
     width: 20%;
   }
+ .left-container, .right-container{
+   display: none;
+ }
   .suggestion-box{
     width: 95%;
   }
@@ -335,6 +434,9 @@ a:not([href]):not([class]){
 }
 
 @media only screen and (min-width: 576px) and (max-width:768px){
+  .navigation a{
+    font-size: 18px;
+  }
   .footer{
     height: 40px;
   }

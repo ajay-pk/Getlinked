@@ -1,4 +1,3 @@
-//Html page work for Home
 $(function(){
     $('[data-tooltip').tooltip({placement:'bottom'});
   });
@@ -14,7 +13,7 @@ function displayUser() {
     }
   }
 
-//To get the Link data using the api 
+
 const api_url="http://localhost:3000/getLink";
 async function getLink(url){
     const response=await fetch(url,{
@@ -33,11 +32,11 @@ function showData(data){
         <div class="card-suggestion">
         <img class="save-suggestion float-left" src="images/icons/home page/bookmark for card suggestion.svg">
         <img class="info-suggestion float-right" src="images/icons/home page/info.svg">
-            <div class="card-info">
+            <a class="card-info" href="${element.Link}" target="_blank">
                 <div class="card-d-1"><b>${element.Department}</b></div>
                 <div class="card-d-2 ">${element.SubjectName}</div>
                 <div class="card-d-3 ">${element.Topic}</div>
-            </div>
+            </a>
         </div>`
 
     });
@@ -52,7 +51,7 @@ getLink(api_url)
        .catch(err=>{
            console.log(err);
        })
-//To get the User details using user api
+
 const user_api="http://localhost:3000/userDetails";
 async function getUser(url){
     const response=await fetch(url,{

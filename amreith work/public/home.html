@@ -7,28 +7,38 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="icon" type="image/png" href="images/logo/the small one/favicon.png">
 </head>
 <body>
     <div cass="back-cover">
         <div class="navigation">
+            <img class="logo" src="images/logo/general-logo/Group 6.png"> 
             
-            <a data-tooltip title="Home" class="d-none d-sm-block"><img src="images/icons/home page/home red.svg" class="home-icon d-none d-sm-block"></a>
-            <a data-tooltip title="Home" class="d-block d-sm-none"><img src="images/icons/home page mobile/home red.svg" class="home-icon d-block d-sm-none"></a>
-            <a data-tooltip title="Saved Links" class="d-none d-sm-block"><img src="images/icons/home page/bookmark.svg" class="bookmark-icon d-none d-sm-block"></a>
-            <a data-tooltip title="Saved Links" class="d-block d-sm-none"><img src="images/icons/home page mobile/bookmark.svg" class="bookmark-icon d-block d-sm-none"></a>
-            <div class="logo-placer">
-                <div class="logo-name">Get-Linked</div>
-            </div>
-            <a data-tooltip title="Search" class="d-none d-sm-block"><img src="images/icons/home page/search (1).svg" class="search-icon d-none d-sm-block"></a>
-            <a data-tooltip title="Search" class="d-block d-sm-none"><img src="images/icons/home page mobile/search.svg" class="search-icon d-block d-sm-none"></a>
-            <a data-tooltip title="User Details" class="d-none d-sm-block"><img src="images/icons/home page/user laptop small.svg" class="more-icon d-none d-sm-block" id="user-icon"></a>
-            <a data-tooltip title="User Details" class="d-block d-sm-none"><img src="images/icons/home page mobile/user mobile small.svg" class="more-icon d-block d-sm-none" id="user-icon"></a>
+            <a class="d-none d-sm-block home-icon"><img src="images/icons/home page mobile/home.svg" class=" d-none d-sm-block"><span>Home</span></a>
+            <a class="d-block d-sm-none home-icon"><img src="images/icons/home page mobile/home.svg" class=" d-block d-sm-none"></a>
+            <a data-tooltip title="Saved Links" class="d-none d-sm-block bookmark-icon"><img src="images/icons/home page mobile/bookmark.svg" class=" d-none d-sm-block"><span>Bookmark</span></a>
+            <a data-tooltip title="Saved Links" class="d-block d-sm-none bookmark-icon"><img src="images/icons/home page mobile/bookmark.svg" class=" d-block d-sm-none"></a>
+            <a class="d-none d-sm-block search-icon"><img src="images/icons/home page mobile/search.svg" class=" d-none d-sm-block"><span>Search</span></a>
+            <a class="d-block d-sm-none search-icon"><img src="images/icons/home page mobile/search.svg" class=" d-block d-sm-none"></a>
+            <a class="d-none d-sm-block more-icon"><img src="images/icons/home page mobile/user mobile small.svg" class=" d-none d-sm-block" id="user-icon"><span>User</span></a>
+            <a class="d-block d-sm-none more-icon"><img src="images/icons/home page mobile/user mobile small.svg" class=" d-block d-sm-none" id="user-icon"></a>
         </div>
-        <div class="left-container float-left"></div>l
-        <div class="right-container float-right d-none d-md-block">
+        <div class="left-container float-left d-none">
+            <form>
+                <label for="Department">Choose Your Department:</label>
+                <select name="Department" id="Department">
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="CSE">CSE</option>
+                    <option value="Mech">Mech</option>
+                    <option value="Civil">Civil</option>
+                </select>
+                <input type="submit" value="Update">
+            </form>
+        </div>l
+        <div class="right-container float-right d-none">
             <div class="user-details" id="user-details">
-                <div>Want perks of Get-Linked?</div>
-                <a href="SignIn.html">Log-In</a>
+
             </div>
         </div>
         <input class="search-box" type="text" placeholder="Search for links">
@@ -38,19 +48,21 @@
         <!-- <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-none d-sm-block" src="images/icons/home page/upload.svg"></a>
         <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a> -->
         <div class="suggestion-container">
+            <div class="suggestion-info">For personalised suggestions, Log in using <a href="SignIn.html">Google</a></div>
+            <div class="suggestion-outer-box">
             <div class="suggestion-box " id="cardDetails">
-                
-                <div class="suggestion-info">For personalised suggestions, Log in using <a>Google</a></div>
+                <!-- <div class="empty-suggestion"></div> -->
             </div>   
+            </div>
         </div>
-        <a href="submit.html" data-tooltip title="Upload links here!" class="d-none d-sm-block upload"><img class="upload-icon d-none d-sm-block" src="images/icons/home page/upload.svg"></a>
-        <a href="submit.html" data-tooltip title="Upload links here!" class="d-block d-sm-none upload"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a>
-        <div class="footer">
+        <a href="submit.html" data-tooltip title="Upload links here!" class="d-none d-sm-block upload-icon"><img class="upload-icon d-none d-sm-block" src="images/icons/home page/upload.svg"></a>
+        <a href="submit.html" data-tooltip title="Upload links here!" class="d-block d-sm-none upload-icon"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a>
+        <footer class="footer">
             <a class="about">About</a>
             <a class="terms">Terms</a>
             <a class="help">Help</a>
             <a class="contact-us">Contact us</a>
-        </div>
+        </footer>
     </div>
 
      
