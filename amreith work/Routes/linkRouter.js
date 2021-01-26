@@ -4,6 +4,7 @@ const {isAuth,Features} = require('../Middleware/isAuth');
 const mongoose=require('mongoose');
 const Link=require('../models/link');
 
+//Api for Uploading links and creating in Database
 router.post('/uploadLink',Features,(req,res,next)=>{
     const link={
       Link:req.body.Link,
@@ -13,18 +14,22 @@ router.post('/uploadLink',Features,(req,res,next)=>{
       Topic:req.body.Topic,
       Description:req.body.Description
   };
+    console.log(link);
     Link.create(link)
         .then(result=>{
-          console.log(result);
-          console.log("Succesfully Inserted");
-          res.redirect('/submit.html');
-          
+          res.send({
+            status:"Successfully inserted"
+          });
+          // res.send(result);
         })
         .catch(err=>{
           console.log(err);
+          res.redirect('/home.html');
         })
   
   });
+
+//Api for getting links to Suggestions
   router.get('/getLink',(req,res,next)=>{
     Link.find({})
         .then(data=>{
@@ -35,5 +40,7 @@ router.post('/uploadLink',Features,(req,res,next)=>{
           console.log('error while getting links in Backend')
         })
   });
+
+ 
 
   module.exports=router;

@@ -30,8 +30,8 @@ function showData(data){
     data.forEach(element => {
         template+=` 
         <div class="card-suggestion">
-        <img class="save-suggestion float-left" src="images/icons/home page/bookmark for card suggestion.svg">
-        <img class="info-suggestion float-right" src="images/icons/home page/info.svg">
+        <i class="save-suggestion float-left la la-bookmark"></i>
+        <i class="info-suggestion float-right las la-info-circle"></i>
             <a href="${element.Link}" target="_blank"><div class="card-info">
                 ${element.Department}<br>
                 ${element.SubjectName}<br>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get-Linked</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="icon" type="image/png" href="images/logo/the small one/favicon.png">
@@ -12,17 +13,14 @@
 <body>
     <div cass="back-cover">
         <div class="navigation">
-            
-            <img class="logo" src="images/logo/general-logo/Group 6.png"> 
-            
-            <!-- <a class="d-none d-sm-block home-icon"><img src="images/icons/home page mobile/home.svg" class=" d-none d-sm-block"><span>Home</span></a>
-            <a class="d-block d-sm-none home-icon"><img src="images/icons/home page mobile/home.svg" class=" d-block d-sm-none"></a>
-            <a data-tooltip title="Saved Links" class="d-none d-sm-block bookmark-icon"><img src="images/icons/home page mobile/bookmark.svg" class=" d-none d-sm-block"><span>Bookmark</span></a>
-            <a data-tooltip title="Saved Links" class="d-block d-sm-none bookmark-icon"><img src="images/icons/home page mobile/bookmark.svg" class=" d-block d-sm-none"></a>
-            <a class="d-none d-sm-block search-icon"><img src="images/icons/home page mobile/search.svg" class=" d-none d-sm-block"><span>Search</span></a>
-            <a class="d-block d-sm-none search-icon"><img src="images/icons/home page mobile/search.svg" class=" d-block d-sm-none"></a>
-            <a class="d-none d-sm-block more-icon"><img src="images/icons/home page mobile/user mobile small.svg" class=" d-none d-sm-block" id="user-icon"><span>User</span></a>
-            <a class="d-block d-sm-none more-icon"><img src="images/icons/home page mobile/user mobile small.svg" class=" d-block d-sm-none" id="user-icon"></a> -->
+            <ul id="navigation">
+                <li><a href="home.html"><i class="la la-home active"></i> Home</a></li>
+                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a></li>
+                <a href="#"><img class="logo" src="images/logo/general-logo/Group 6.png"></a>
+                <li class=""><a href="#"><i class="la la-search"></i> Search</a></li>
+                <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
+
+            </ul>
         </div>
         <div class="left-container float-left d-none">
             <form>

@@ -6,56 +6,88 @@ body{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000000;
+    /* background-color: #000000; */
 }
 .navigation {
     /* opacity: 0.8; */
     z-index: 1000;
     background-color: #000000;
-    position: fixed;
-    padding: 27px 0px;
+    /* position: fixed; */
+    padding:0px;
     width: 100%;
-    height: 68px;
+    height: 100px;
+    overflow: visible;
+  }
+  .navigation ul{
+    height: 100%;
+    padding: 0px; 
+    width: 100%;
+  }
+  .navigation ul li i{
+    font-size: 30px;
+    margin-right: 5px;
+  }
+  .active{
+    color: #d14747;
+}
+  .navigation ul li a:hover{
+    cursor: pointer;
+  }
+  .navigation ul li a{
+    text-decoration: none;
+    color: #BEBDBE;
+  }
+  .navigation ul li{
+    border-bottom:2px solid #000000;
+    font-size: 20px;
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
-    overflow: visible;
-}
-.home-icon:hover, .bookmark-icon:hover, .search-icon:hover, .more-icon:hover{
-    opacity: 0.6;
-}
-.logo-placer {
-    flex-shrink: 0;
-    width: 123px;
-    height: 31px;
-    overflow: visible;
-    background-color: rgba(48, 70, 84, 0.5);
-}
-.logo-name {
-    width: 97px;
-    height: 20px;
-    overflow: visible;
-    font-family: "Inter", sans-serif;
-    color: #000000;
-    font-size: 16px;
-    letter-spacing: 0px;
-    line-height: 1.2;
-}
+    justify-content: center;
+    text-align: center;
+    float: left;
+    color: #BEBDBE;
+    width: 20%;
+    list-style-type: none;
+    
+  }
+  .navigation ul li:hover{
+    /* cursor: pointer; */
+    /* opacity: 0.7; */
+    /* background-color: # */
+    border-bottom:2px solid #d14747;
+  }
+  .navigation ul a{
+    float: left;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    
+  }
+  
+  .logo{
+    float: left;
+    width: 200px;
+    height: 100px;
+  }
 .google-sign-in{
     display: flex;
-    margin: 8% auto 0px auto;
+    margin: 20px auto 0px auto;
 }
 .use-as-guest-c{
-    margin: 5% auto 0px auto;
-    width: 15%;
-  height: 50px;
-  overflow: visible;
-  background-color: #58595c;
-  border-radius: 8px;
+margin: 5% auto 0px auto;
+width: 15%;
+height: 50px;
+overflow: visible;
+background-color: #58595c;
+border-radius: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 .use-as-guest {
-    padding: 15px 0px;
+    /* padding: 15px 0px; */
     text-align: center;
     overflow: visible;
     font-weight: 400;
@@ -64,7 +96,7 @@ body{
     color: #BEBDBE;
     font-size: 16px;
     letter-spacing: 0px;
-    line-height: 1.2;
+    /* line-height: 1.2; */
 }
 .perks-of-signing-in {
     width:30%;
@@ -204,7 +236,7 @@ body{
 }
 @media only screen and (min-width: 768px) and (max-width:991px){
     .google-sign-in{
-        margin-top: 14%;
+        margin-top: 30px;
     }
     .perks-of-signing-in{
         width: 70%;
@@ -238,7 +270,7 @@ body{
 }
 @media only screen and (min-width: 576px) and (max-width:767px){
     .google-sign-in{
-        margin-top: 14%;
+        margin-top: 30px;
     }
     .perks-of-signing-in{
         width: 70%;
@@ -249,19 +281,20 @@ body{
         width: 100%;
     }
     .perks-text{
-        font-size: 20px;
+        font-size: 1px;
     }
     .perks{
         float: left;
         width: 40%;
+        height: 150px;
         margin: 5% 5%;
 
     }
     .mail-icon{
-        margin-top: 10%;
+        margin-top: 5%;
     }
     .use-as-guest-c{
-        width: 20%;
+        width: 23%;
     }
     .info-icon{
         position: absolute;
@@ -273,22 +306,22 @@ body{
 }
 @media only screen and (min-width: 0px) and (max-width:576px){
     .google-sign-in{
-        margin-top: 16%;
+        margin-top: 30px;
     }
     .perks-of-signing-in{
         width: 70%;
         font-size: 20px;
     }
     .perks-container{
-        
         display: block;
         width: 100%;
+        /* height:20px; */
     }
     .perks-text{
-        font-size: 18px;
+        font-size: 10px;
     }
     .perks{
-        height: 150px;
+        height: 100px;
         float: left;
         width: 40%;
         margin: 5% 5%;
@@ -296,14 +329,16 @@ body{
     }
     .use-as-guest-c{
         width: 25%;
+        height: 25px;
     }
     .use-as-guest{
-        font-size: 14px;
+        font-size: 10px;
     }
     .info-icon{
         position: absolute;
         right: 3%;
         bottom: 3%;
+        /* width: 15px; */
     
     }
 
