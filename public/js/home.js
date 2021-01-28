@@ -1,17 +1,17 @@
-$(function(){
-    $('[data-tooltip').tooltip({placement:'bottom'});
-  });
+// $(function(){
+//     $('[data-tooltip').tooltip({placement:'bottom'});
+//   });
 
-document.getElementById("user-icon").onclick = function() {displayUser()};
-function displayUser() {
-    var element = document.getElementById("user-details");
-    if(element.style.display == "none"){
-        element.style.display = "block";
-    }
-    else{
-        element.style.display = "none";
-    }
-  }
+// document.getElementById("user-icon").onclick = function() {displayUser()};
+// function displayUser() {
+//     var element = document.getElementById("user-details");
+//     if(element.style.display == "none"){
+//         element.style.display = "block";
+//     }
+//     else{
+//         element.style.display = "none";
+//     }
+//   }
 
 
 const api_url="http://localhost:3000/getLink";
@@ -30,12 +30,13 @@ function showData(data){
     data.forEach(element => {
         template+=` 
         <div class="card-suggestion">
-        <img class="save-suggestion float-left" src="images/icons/home page/bookmark for card suggestion.svg">
-        <img class="info-suggestion float-right" src="images/icons/home page/info.svg">
-            <a class="card-info" href="${element.Link}" target="_blank">
-                <div class="card-d-1"><b>${element.Department}</b></div>
-                <div class="card-d-2 ">${element.SubjectName}</div>
-                <div class="card-d-3 ">${element.Topic}</div>
+        <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
+        <i class="info-suggestion float-right las la-info-circle" id="info"></i>
+            <a href="${element.Link}" target="_blank"><div class="card-info">
+                ${element.Department}<br>
+                ${element.SubjectName}<br>
+                ${element.Topic}
+            </div>
             </a>
         </div>`
 

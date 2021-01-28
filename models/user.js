@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+//Creating a model for how the User data should be
 const UserSchema = new mongoose.Schema({
   googleId:{
     type:String,

@@ -1,7 +1,6 @@
 const express=require('express');
 const router=express.Router();
 const {isAuth,Features}=require('../Middleware/isAuth');
-const mongoose=require('mongoose');
 const User=require('../models/user');
 
 router.get('/userDetails',Features,(req,res,next)=>{

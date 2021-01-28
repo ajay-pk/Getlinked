@@ -1,0 +1,82 @@
+let card=document.getElementById('cardDetails');
+const data_api="http://localhost:3000/clickData"
+let data={
+    Type:'click',
+    Tag: 'suggestion card',
+    click_object: '',
+    Time: ''
+}
+function post(data,url){
+   $.ajax({
+   type:'POST',
+   url:url,
+   data:JSON.stringify(data),
+   dataType:'json',
+   contentType : "application/json",
+   success:function(res,status){
+      console.log('post no')
+   },
+   error:function(err){
+      console.log(err)
+   }
+   });
+}
+function Savepost(data,url){
+   $.ajax({
+   type:'POST',
+   url:url,
+   data:JSON.stringify(data),
+   dataType:'json',
+   contentType : "application/json",
+   success:function(res,status){
+      console.log(res)
+      console.log('sent save')
+   },
+   error:function(err){
+      console.log(err)
+   }
+   });
+}
+card.addEventListener('click',(e)=>{
+   let saved={
+      button:'',
+      link:''
+   }
+   const save_api="http://localhost:3000/save"
+   if(e.target.className==="card-info"){
+      let d = new Date(); // for now
+    //   console.log(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`)
+    //   console.log(`${d.toLocaleString()}`)
+      data.click_object=e.target.parentNode.attributes[0].nodeValue;
+      data.Time=d.toLocaleString();
+      //post(data,data_api);
+      console.log(data);
+      // DO POST
+   }
+   else if(e.target.attributes[1].nodeValue==="saved" && (Array.from(e.target.classList).indexOf('click')==-1)){
+      //e.target.className="save-suggestion float-left click"
+        e.target.classList.add('click');
+        saved.button='save';
+        saved.link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
+        Savepost(saved,save_api)
+        console.log(saved);
+   }
+   else if(e.target.attributes[1].nodeValue==="saved" && e.target.classList.contains('click')){
+      console.log(e);
+        e.target.classList.remove('click')
+        saved.button='unsave';
+        saved.link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
+        Savepost(saved,save_api)
+        console.log(saved)
+
+   }
+   else if(e.target.attributes[1].nodeValue==="info"){
+      console.log("Info veyy!!")
+   }
+   // else if(e.target.className==="save-suggestion"){
+   //    console.log('saved ehy!!')
+   // }
+   // else {
+   //    console.log("Info pa!!");
+   // }
+})
