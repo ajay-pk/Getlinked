@@ -1,5 +1,5 @@
 body{
-    background-color: #000000;
+    background: url("../images/background/red_back-home.png")
   }
   .back-cover {
     box-sizing: border-box;
@@ -93,26 +93,37 @@ body{
 }
 .saved-body{
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 10px 0px;
     width: 100%;
     height:270px;
     background-color: #000000;
 }
 .saved-cards{
-    text-align: center;
-    opacity: 0.2;
-    background-color: #2a2f32;
+    padding: 10px;
+    opacity: 1;
+    background-color: #0f0f0f;
     float: left;
-    width: 225px;
+    width: 175px;
     height: 250px;
     margin: 0px 10px;
     border-radius: 5px;
 }
 .saved-cards:hover{
     opacity: 0.5;
+}
+.saved-cards a{
+  border: none;
+  color: #BEBDBE;
+}
+.saved-cards a:hover{
+  text-decoration: none;
+}
+.saved-image img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100px;
+  height:100px;
 }
 
  

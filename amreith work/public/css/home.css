@@ -274,9 +274,9 @@ body{
 .card-suggestion:hover{
   background-color: #2a2f32;
 }
-.click{
+/* .click{
   color: #d14747;
-}
+} */
 .save-suggestion, .info-suggestion{
   font-size: 40px;
   color: #BEBDBE;
@@ -286,6 +286,9 @@ body{
 .save-suggestion:hover, .info-suggestion:hover{
   border-radius: 7px;
   color: #d14747;
+}
+.click{
+  color:#d14747;
 }
 .suggestion-info{
   margin: 20px auto;
