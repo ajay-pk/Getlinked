@@ -41,7 +41,8 @@ const LinkdetailsSchema=new mongoose.Schema({
     uploadedby:{
         type:String,
         default:'admin'
-    }
+    },
+    saved:[String]
 });
 
 /*const LinkSchema=new mongoose.Schema({
