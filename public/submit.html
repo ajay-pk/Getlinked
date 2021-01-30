@@ -7,12 +7,23 @@
     <title>Get-Linked</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="css/submit.css">
 
 </head>
 <body>
     <div class="back-cover">
         <div class="navigation">
+            <ul>
+                <li class=""><a href="home.html"><i class="la la-home"></i> Home</a></li>
+                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a></li>
+                <a href="#"><img class="logo" src="images/logo/general-logo/Group 6.png"></a>
+                <li class=""><a href="#"><i class="la la-search"></i> Search</a></li>
+                <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
+
+            </ul>
+        </div>
+        <!-- <div class="navigation">
             <a href="home.html"><img src="images/icons/home page/home.svg" class="home-icon d-none d-sm-block"></a>
             <img src="images/icons/home page mobile/home.svg" class="home-icon d-block d-sm-none">
             <img src="images/icons/home page/bookmark.svg" class="bookmark-icon d-none d-sm-block">
@@ -24,7 +35,7 @@
             <img src="images/icons/home page mobile/search.svg" class="search-icon d-block d-sm-none">
             <img src="images/icons/home page/more-vertical.svg" class="more-icon d-none d-sm-block">
             <img src="images/icons/home page mobile/more-vertical.svg" class="more-icon d-block d-sm-none">
-        </div>
+        </div> -->
 
         <div class="form-container" >
             <div class="title-form">Upload Link</div>
@@ -64,6 +75,11 @@
                     <div class="link-container" style="background-color: black;">
                         <div class="key float-left" style="color: #E3D8D8;"><span class="required">*</span> - Required field</div>
                         <div class="submit float-right"><button class="submit-icon">Submit</button></div>
+                        <div class="toggle-info float-right">(To add more links, toggle)</div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                     
                 </form>
@@ -81,6 +97,7 @@
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/Http.js"></script>
     <script src="js/upload.js"></script>
     
     
