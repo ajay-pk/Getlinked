@@ -32,6 +32,7 @@ router.post('/uploadLink',Features,(req,res,next)=>{
 //Api for getting links to Suggestions
   router.get('/getLink',(req,res,next)=>{
     Link.find({})
+        .select({_id:0,saved:0,uploadedAt:0,uploadedby:0,LinkType:0})
         .then(data=>{
           console.log(data);
           res.json(data);
@@ -40,7 +41,15 @@ router.post('/uploadLink',Features,(req,res,next)=>{
           console.log('error while getting links in Backend')
         })
   });
-
+//Api for Bookmarks
+router.get('/Bookmarks',Features,(req,res,next)=>{
+   Link.find({saved:req.user.id})
+       .select({Link:1,LinkType:1,SubjectName:1,Topic:1,_id:0})
+        .then(data=>{
+          console.log(data);
+          res.json(data);
+        })
+})
  
 
   module.exports=router;
