@@ -1,7 +1,6 @@
 const express=require('express');
 const router=express.Router();
 const {isAuth,Features} = require('../Middleware/isAuth');
-const mongoose=require('mongoose');
 const Link=require('../models/link');
 
 //Api for Uploading links and creating in Database
@@ -12,7 +11,8 @@ router.post('/uploadLink',Features,(req,res,next)=>{
       Department:req.body.Department,
       SubjectName:req.body.SubjectName,
       Topic:req.body.Topic,
-      Description:req.body.Description
+      Description:req.body.Description,
+      uploadedby:req.user.googleId
   };
     console.log(link);
     Link.create(link)
@@ -40,7 +40,14 @@ router.post('/uploadLink',Features,(req,res,next)=>{
           console.log('error while getting links in Backend')
         })
   });
-
+//Api for Bookmarks
+router.get('/Bookmarks',Features,(req,res,next)=>{
+   Link.find({saved:req.user.id},{projection:{uploadedBy:0,uploadedAt:0}})
+        .then(data=>{
+          console.log(data);
+          res.json(data);
+        })
+})
  
 
   module.exports=router;
