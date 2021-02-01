@@ -5,6 +5,8 @@ const keys = require('../.gitignore/keys');
 const User = require('../models/user')
 const mongoose=require('mongoose');
 
+//Passport configuration for Google signin and creating the user in our database
+//Checks if the user present and makes it easier to find who logged in
 module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(

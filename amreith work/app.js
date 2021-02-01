@@ -8,14 +8,17 @@ const authRoutes=require("./Routes/authRouter");
 const linkRoutes=require('./Routes/linkRouter');
 const userRoutes=require("./Routes/userRouter")
 const connectDB= require('./config/db');
+const clickDataRoutes=require('./Routes/clickDataRouter')
+const savedLinkRoutes=require('./Routes/savedLinkRouter')
 const cors = require('cors');
 
 
-
+//Sessions data stored in Mongodb
 const MongoStore=require('connect-mongo')(session);
 
+//Passport Configuration
 require('./Config/passport')(passport);
-
+//DB connection
 connectDB();
 
 
@@ -42,7 +45,7 @@ app.use(session({
         // //secure:true,
         // sameSite:true,
 
-        maxAge: 1000 * 60 * 60 * 24 * 1 // Equals 1 day (1 day * 24 hr/1 day * 60 min/1 hr * 60 sec/1 min * 1000 ms / 1 sec)
+        maxAge: 1000 * 60 * 60* 24 * 1// Equals 1 day (1 day * 24 hr/1 day * 60 min/1 hr * 60 sec/1 min * 1000 ms / 1 sec)
     }
 }));
 
@@ -50,9 +53,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('./public'));
+//User authentication Handle
 app.use(authRoutes);
+//Userdetails Handle
 app.use(userRoutes);
+//Link details Handle
 app.use(linkRoutes);
+//click data handle
+app.use(clickDataRoutes);
+app.use(savedLinkRoutes);
 
 
 app.listen(port, () => {

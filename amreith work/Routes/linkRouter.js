@@ -12,7 +12,7 @@ router.post('/uploadLink',Features,(req,res,next)=>{
       SubjectName:req.body.SubjectName,
       Topic:req.body.Topic,
       Description:req.body.Description,
-      uploadedby:req.user.googleId
+      uploadedby:req.user.id
   };
     console.log(link);
     Link.create(link)
@@ -49,6 +49,15 @@ router.get('/Bookmarks',Features,(req,res,next)=>{
           console.log(data);
           res.json(data);
         })
+})
+
+router.get('/Your-Bookmarks',Features,(req,res,next)=>{
+  Link.find({uploadedby:req.user.id})
+        .select({_id:0,Link:1,LinkType:1,SubjectName:1,Topic:1})
+         .then(data=>{
+           console.log(data);
+           res.json(data);
+         })
 })
  
 

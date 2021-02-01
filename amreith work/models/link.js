@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
 
+//Creating a model for how the Link data should be
 const LinkdetailsSchema=new mongoose.Schema({
     Link:{
      type:String,
@@ -30,13 +31,18 @@ const LinkdetailsSchema=new mongoose.Schema({
         required:[true,'Topic is Required!!']
     },
     Description:{
-        type:String,
+        type:String
 
     },
     uploadedAt:{
         type:Date,
         default:Date.now
-    }
+    },
+    uploadedby:{
+        type:String,
+        default:'admin'
+    },
+    saved:[String]
 });
 
 /*const LinkSchema=new mongoose.Schema({
