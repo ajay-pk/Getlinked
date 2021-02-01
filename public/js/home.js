@@ -1,6 +1,7 @@
-// $(function(){
-//     $('[data-tooltip').tooltip({placement:'bottom'});
-//   });
+
+$(function(){
+    $('[data-tooltip').tooltip({placement:'bottom'});
+  });
 
 // document.getElementById("user-icon").onclick = function() {displayUser()};
 // function displayUser() {
@@ -35,7 +36,7 @@ linkData.get(api_url)
 // }
 
 function showData(data){
-    let template=` `    
+    let template=` `   
     data.forEach(element => {
         template+=` 
         <div class="card-suggestion">
@@ -120,4 +121,54 @@ userData.get(user_api)
 //        .catch(err=>{
 //            console.log(err);
 //        })
+
+$(document).ready(function () {
+    $("#search-box").autocomplete({
+        source: async function(request, response) {
+            $.ajax({
+                url: "/search",
+                dataType: "json",
+                data: "topic=" + request.term,
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        console.log(item);
+                        return {
+                            label: item.Topic,
+                            value: item.Topic,
+                            id:item._id
+                        };
+                    }));
+    
+                console.log(data);
+                }});
+
+            // console.log($(request.term));
+            // let data = await fetch(`http://localhost:3000/search?topic=${request.term}`)
+            //     .then(results =>{
+            //         console.log(results);
+            //         results.json()
+            //     })
+            //     .then(results =>
+            //          results.map(result => {
+            //         return { label: result.Topic, value: result.Topic, id: result._id };
+            //     }));
+            // console.log(data);
+            // response(data);
+        
+},
+        minLength: 2,
+        select: function(event, ui) {
+            fetch(`http://localhost:3000/getLink/${ui.item.id}`)
+                .then(result =>{
+                    console.log(result);
+                 })
+                .then(result => {
+                    $("#search-result").empty();
+                    result.Topic.forEach(Topic => {
+                        $("#search-result").append(`<li>${Topic}</li>`);
+                    });
+                });
+        }
+    });
+});
 
