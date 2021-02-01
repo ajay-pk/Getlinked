@@ -2,6 +2,8 @@ const express=require('express');
 const router=express.Router();
 const {isAuth,Features} = require('../Middleware/isAuth');
 const Link=require('../models/link');
+const  MongoClient= require("mongodb").MongoClient;
+const url ="mongodb+srv://test:ajaysanjay1@cluster0.lvyjc.mongodb.net/getlinked?retryWrites=true&w=majority"
 
 //Api for Uploading links and creating in Database
 router.post('/uploadLink',Features,(req,res,next)=>{
@@ -59,6 +61,41 @@ router.get('/Your-Bookmarks',Features,(req,res,next)=>{
            res.json(data);
          })
 })
+router.get("/search", (req, res) => {
+  try {
+    MongoClient.connect(url,function(err,db){
+      if(err){
+        console.log("not connected");
+      }
+      let dbo= db.db("Get-Linked")
+      dbo.collection("links").aggregate([
+        {
+            "$search": {
+                "autocomplete": {
+                    "query": `${req.query.topic}`,
+                    "path": "Topic",
+                    "fuzzy": {
+                        "maxEdits": 2,
+                        "prefixLength": 1
+                    }
+                }
+            }
+        }
+    ]).toArray(function(err,result){
+      
+      if(err){
+         console.log("error bha")
+      }
+      res.send(result)
+    });
+
+    })
+
+
+  } catch (e) {
+      res.status(500).send({ message: e.message });
+  }
+});
  
 
   module.exports=router;

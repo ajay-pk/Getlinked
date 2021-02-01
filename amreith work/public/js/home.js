@@ -1,6 +1,6 @@
-// $(function(){
-//     $('[data-tooltip').tooltip({placement:'bottom'});
-//   });
+$(function(){
+    $('[data-tooltip').tooltip({placement:'bottom'});
+  });
 
 // document.getElementById("user-icon").onclick = function() {displayUser()};
 // function displayUser() {
@@ -35,7 +35,7 @@ linkData.get(api_url)
 // }
 
 function showData(data){
-    let template=` `    
+    let template=` `   
     data.forEach(element => {
         template+=` 
         <div class="card-suggestion">
@@ -120,4 +120,36 @@ userData.get(user_api)
 //        .catch(err=>{
 //            console.log(err);
 //        })
+
+$(document).ready(function () {
+    $("#search-box").autocomplete({
+        source: async function(request, response) {
+            console.log($(request.term));
+            fetch(`http://localhost:3000/search?topic=${request.term}`)
+                .then(results =>{
+                    console.log(results);
+                    results.json()
+                })
+                // .then(results =>
+                //      results.map(result => {
+                //     return { label: result.Topic, value: result.Topic, id: result._id };
+                // }));
+            // console.log(data);
+            // response(data);
+        },
+        // minLength: 2,
+        // select: function(event, ui) {
+        //     fetch(`http://localhost:3000/get/${ui.item.id}`)
+        //         .then(result =>{
+        //             console.log(result);
+        //          })
+        //         .then(result => {
+        //             $("#card-details").empty();
+        //             result.links.forEach(links => {
+        //                 $("#card-details").append(`<div class="searched-links">${links}</div>`);
+        //             });
+        //         });
+        // }
+    });
+});
 
