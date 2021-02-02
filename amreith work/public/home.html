@@ -22,17 +22,33 @@
                 <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
             </ul>
         </div>
-        <input class="search-box" id="search-box" type="text" placeholder="Search for links">
-        
-        <!-- <button class="go-button">
-            <div class="go">Go</div>
-        </button> -->
-        <ul id="search-result">
-            <li>hii</li>
-        </ul>
+            <input class="search-box" id="search-box" type="text" placeholder="Search for links">
+        <div class="filter-container">
+        <form>
+            <label for="Department">Choose Your Department:</label>
+            <select name="Department" id="Department">
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="CSE">CSE</option>
+                <option value="Mech">Mech</option>
+                <option value="Civil">Civil</option>
+            </select>
+            <input type="submit" value="Update">
+        </form>
+        <form>
+            <label for="Department">Choose Your Department:</label>
+            <select name="Department" id="Department">
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="CSE">CSE</option>
+                <option value="Mech">Mech</option>
+                <option value="Civil">Civil</option>
+            </select>
+            <input type="submit" value="Update">
+        </form>
+        </div>
 
-        <!-- <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-none d-sm-block" src="images/icons/home page/upload.svg"></a>
-        <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a> -->
+        <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a>
         <div class="suggestion-container">
             <div class="suggestion-info">For personalised suggestions, Log in using <a href="SignIn.html">Google</a></div>
             <div class="suggestion-outer-box">

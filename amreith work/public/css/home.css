@@ -94,6 +94,52 @@ body{
   /* border: none; */
   outline: none;
 }
+.filter-container{
+  margin: 20px auto;
+  width: 63%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filter-container form{
+  display: grid;
+  justify-content: center;
+  border-radius: 1rem;
+  width: 25%;
+  height: 150px;
+  margin: 20px 50px 40px 50px;
+  background:linear-gradient(to right bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+  backdrop-filter: blur(1rem);
+}
+.filter-container label{
+  margin-top: 10px;
+  color: #BEBDBE;
+}
+.filter-container select{
+  background: transparent;
+  border: none;
+  color: #BEBDBE;
+  margin: 5px;
+}
+
+form input{
+  border-radius: 1rem;
+  width: 50%;
+  margin: 10px 0px;
+  /* background: transparent; */
+  border: none;
+  outline: none;
+  background-color: #d14747;
+
+}
+#Department option{
+  outline: none;
+  border: none;
+  background-color: #2a2f32;
+  /* background:linear-gradient(to right bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.1)); */
+
+}
+
 .more-icon svg{
   color: #d14747;
 }
@@ -109,42 +155,7 @@ body{
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #F6F8F8;
 }
-.go-button{
-  border: none;
-  margin: 32px auto 0px auto;
-  box-sizing: border-box;
-  width: 9%;
-  height: 3%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 0px 5px 0px;
-  overflow: visible;
-  background-color: #fd413c;
-  opacity: 0.8;
-  border-radius: 15px;
-}
-.go-button:hover{
-  opacity: 0.6;
-}
-.go-button:focus{
-  border: none;
-  outline: none;
-}
-.go{
-  flex-shrink: 0;
-  width: 24px;
-  height: 20px;
-  overflow: visible;
-  font-weight: 400;
-  font-style: normal;
-  font-family: "Poppins", serif;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 1.2;
-}
+
 .suggestion-outer-box{
   margin: 0px auto;
   width: 63%;
@@ -179,7 +190,7 @@ body{
   background-color: #2a2f32;
 } */
 .suggestion-title{
-  margin: 10px auto;
+  margin: 0px auto;
   width: 109px;
   height: 20px;
   overflow: visible;
