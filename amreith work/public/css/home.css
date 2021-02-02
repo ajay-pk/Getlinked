@@ -85,12 +85,15 @@ body{
   border: 1px solid #FD413C;
   font-size: 16px;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 2rem;
 }
 .search-box:hover{
   opacity: 0.9;
 }
-
+.search-box:active, .search-box:focus{
+  /* border: none; */
+  outline: none;
+}
 .more-icon svg{
   color: #d14747;
 }

@@ -79,7 +79,17 @@ router.get("/search", (req, res) => {
                         "prefixLength": 1
                     }
                 }
-            }
+            },
+            // "$project": {
+            //   "_id": 1,
+            //   // "Topic": 1,
+            //   // "Link": 1,
+            //   // "uploadedAt": 0,
+            //   // "Description": 0,
+            //   "saved": 0
+            //   // "Department": 1
+          
+            // }
         }
     ]).toArray(function(err,result){
       
@@ -95,6 +105,29 @@ router.get("/search", (req, res) => {
   } catch (e) {
       res.status(500).send({ message: e.message });
   }
+});
+
+// router.get("/get/:id", async (request, response) => {
+//   try {
+//     let result = await collection.findOne({ "_id": ObjectID(request.params.id) });
+//     response.send(result);
+// } catch (e) {
+//     response.status(500).send({ message: e.message });
+// }
+// });
+
+
+router.get('/getLink/:id',(req,res,next)=>{
+  console.log('Request Id:', req.params.id);
+  Link.find({_id:req.params.id})
+      .select({_id:0,saved:0,uploadedAt:0,uploadedby:0,LinkType:0})
+      .then(data=>{
+        console.log(data);
+        res.json(data);
+      })
+      .catch(err=>{
+        console.log('error while getting links in Backend')
+      })
 });
  
 
