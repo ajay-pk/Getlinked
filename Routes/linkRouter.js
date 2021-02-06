@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const {isAuth,Features} = require('../Middleware/isAuth');
 const Link=require('../models/link');
+const User=require('../models/user')
 const  MongoClient= require("mongodb").MongoClient;
 const url ="mongodb+srv://test:ajaysanjay1@cluster0.lvyjc.mongodb.net/getlinked?retryWrites=true&w=majority"
 
@@ -19,6 +20,10 @@ router.post('/uploadLink',Features,(req,res,next)=>{
     console.log(link);
     Link.create(link)
         .then(result=>{
+          User.updateOne({_id:req.user.id},{$push:{uploadLinks:result._id}})
+          .then(res=>{
+            console.log(res);
+          })
           res.send({
             status:"Successfully inserted"
           });
@@ -33,7 +38,8 @@ router.post('/uploadLink',Features,(req,res,next)=>{
 
 //Api for getting links to Suggestions
   router.get('/getLink',(req,res,next)=>{
-    Link.find({})
+    if(req.user){
+    Link.find({saved:{$nin:req.user.id}})
         .select({_id:0,saved:0,uploadedAt:0,uploadedby:0,LinkType:0})
         .then(data=>{
           console.log(data);
@@ -42,6 +48,7 @@ router.post('/uploadLink',Features,(req,res,next)=>{
         .catch(err=>{
           console.log('error while getting links in Backend')
         })
+    }
   });
 //Api for Bookmarks
 router.get('/Bookmarks',Features,(req,res,next)=>{
@@ -52,22 +59,27 @@ router.get('/Bookmarks',Features,(req,res,next)=>{
           res.json(data);
         })
 })
-
+//Api for Uploaded links
 router.get('/Your-Bookmarks',Features,(req,res,next)=>{
-  Link.find({uploadedby:req.user.id})
-        .select({_id:0,Link:1,LinkType:1,SubjectName:1,Topic:1})
-         .then(data=>{
-           console.log(data);
-           res.json(data);
-         })
+  User.findOne({_id:req.user.id})
+  .select({uploadLinks:1})
+  .populate('uploadLinks')
+  .then(result=>{
+    res.json(result);
+  })
+
 })
-router.get("/search", (req, res) => {
+router.get("/searchbytopic", (req, res) => {
   try {
     MongoClient.connect(url,function(err,db){
       if(err){
-        console.log("not connected");
+        console.log(err);
       }
-      let dbo= db.db("Get-Linked")
+      
+    console.log("mongoclient connected")
+    
+    console.log(req.connection.remoteAddress)  
+    let dbo= db.db("Get-Linked")
       dbo.collection("links").aggregate([
         {
             "$search": {
@@ -80,11 +92,41 @@ router.get("/search", (req, res) => {
                     }
                 }
             }
-        }
+            // "$project": {
+            //   "_id": 1,
+            //   // "Topic": 1,
+            //   // "Link": 1,
+            //   // "uploadedAt": 0,
+            //   // "Description": 0,
+            //   "saved": 0
+            //   // "Department": 1
+          
+            // }
+        },
+
+        { 
+          "$project":{
+         "uploadedAt": 0,
+         "Description": 0,
+         "saved": 0,
+         "uploadedby":0,
+         "__v":0
+         }
+       },
+      
+       {
+         "$match":{
+           "Department": `${req.query.department}`
+ 
+         }
+       },
+       
+       { $limit: 50 }
+
     ]).toArray(function(err,result){
       
       if(err){
-         console.log("error bha")
+         console.log(err)
       }
       res.send(result)
     });
@@ -119,6 +161,74 @@ router.get('/getLink/:id',(req,res,next)=>{
         console.log('error while getting links in Backend')
       })
 });
- 
+router.get("/searchbysubjectname", (req, res) => {
+  try {
+    MongoClient.connect(url,function(err,db){
+      if(err){
+        console.log(err);
+      }
+      
+      console.log(url)
+      let dbo= db.db("Get-Linked")
+      dbo.collection("links").aggregate([
+        {
+            "$search": {
+                "index": "subjectname",
+                "autocomplete": {
+                    "query": `${req.query.subjectname}`,
+                    "path": "SubjectName",
+                    "fuzzy": {
+                        "maxEdits": 2,
+                        "prefixLength": 1
+                    }
+                },
+                
+               
+            }
+           
+            
+             
+          
+             
+        },
+       
+        { 
+         "$project":{
+        "uploadedAt": 0,
+        "Description": 0,
+        "saved": 0,
+        "uploadedby":0,
+        "__v":0
+        }
+      },
+      {
+        "$match":{
+          "Department": `${req.query.department}`
+
+        }
+      },
+
+      { $limit: 50 }
+
+    ]).toArray(function(err,result){
+      
+      if(err){
+         console.log(err)
+      }
+      res.send(result)
+    });
+
+    })
+
+
+  } catch (e) {
+      res.status(500).send({ message: e.message });
+  }
+});
+
+
+
+
+
 
   module.exports=router;

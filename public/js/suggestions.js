@@ -41,7 +41,8 @@ let data={
 card.addEventListener('click',(e)=>{
    let saved={
       button:'',
-      link:''
+      Department:'',
+      Link:' '
    }
    const save_api="http://localhost:3000/save"
    if(e.target.className==="card-info"){
@@ -64,29 +65,38 @@ card.addEventListener('click',(e)=>{
    }
    else if(e.target.attributes[1].nodeValue==="saved" && (Array.from(e.target.classList).indexOf('click')==-1)){
       //e.target.className="save-suggestion float-left click"
+      // let string=e.path[1].lastElementChild.innerText
+      // let theArray = string.trim().split("\n"); 
         e.target.classList.add('click');
         saved.button='save';
-        saved.link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
+        saved.Department=e.path[1].lastElementChild.innerText.trim().split("\n")[0]
+        saved.Link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
         const savePost=new Http;
         savePost.ajaxPost(save_api,saved)
                 .then(data=>{
                    console.log(data);
                 })
+                .catch(err=>{
+                   console.log(err)
+                })
       //   Savepost(saved,save_api)
-      //   console.log(saved);
+     console.log(saved);
    }
    else if(e.target.attributes[1].nodeValue==="saved" && e.target.classList.contains('click')){
-      console.log(e);
         e.target.classList.remove('click')
         saved.button='unsave';
-        saved.link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
+        saved.Department=e.path[1].lastElementChild.innerText.trim().split("\n")[0]
+        saved.Link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
         const unsavePost=new Http;
         unsavePost.ajaxPost(save_api,saved)
                    .then(data=>{
                       console.log(data);
                    })
+                   .catch(err=>{
+                      console.log(err)
+                   })
       //   Savepost(saved,save_api)
-      //   console.log(saved)
+        console.log(saved)
 
    }
    else if(e.target.attributes[1].nodeValue==="info"){

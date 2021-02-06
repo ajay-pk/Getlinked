@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get-Linked</title>
@@ -22,21 +24,44 @@
                 <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
             </ul>
         </div>
-        <input class="search-box" id="search-box" type="text" placeholder="Search for links">
-        <ul id="search-result">
+            <input class="search-box" id="search-box" type="text" placeholder="Search for links">
             
-        </ul>
-        <button class="go-button">
-            <div class="go">Go</div>
-        </button>
+        <div class="filter-container">
 
-        <!-- <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-none d-sm-block" src="images/icons/home page/upload.svg"></a>
-        <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a> -->
+            
+       
+         <form>
+            <label for="Department">Department</label>
+            <select name="Department" id="Department">
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="CSE">CSE</option>
+                <option value="Mech">Mech</option>
+                <option value="Civil">Civil</option>
+            </select>
+           
+        </form>
+
+        <form action='#'>
+            <label for="searchby">Search by</label>
+            <select name="searchby" id="searchby">
+                <option value="topic">Topic</option>
+                <option value="subjectname">Subject</option>
+                
+            </select>
+          
+        </form> 
+</div>
+
+
+
+        <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a>
         <div class="suggestion-container">
             <div class="suggestion-info">For personalised suggestions, Log in using <a href="SignIn.html">Google</a></div>
             <div class="suggestion-outer-box">
+                <div class="search-results">Search results</div>
             <div class="suggestion-box " id="cardDetails">
-                <!-- <div class="empty-suggestion"></div> -->
+                
             </div>   
             </div>
         </div>

@@ -39,8 +39,8 @@ const LinkdetailsSchema=new mongoose.Schema({
         default:Date.now
     },
     uploadedby:{
-        type:String,
-        default:'admin'
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
     },
     saved:[String]
 });
@@ -53,5 +53,6 @@ const LinkdetailsSchema=new mongoose.Schema({
     LinkDetails:[LinkdetailsSchema]
 });*/
 
-
+LinkdetailsSchema.index({Department:1,Link:1});
+LinkdetailsSchema.index({saved:1})
 module.exports=mongoose.model('Link',LinkdetailsSchema);

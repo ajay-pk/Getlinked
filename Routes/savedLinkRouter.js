@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const savedLink=require('../models/savedLinks');
+// const savedLink=require('../models/savedLinks');
 const Link=require('../models/link')
 const {isAuth,Features}=require('../Middleware/isAuth');
 
@@ -10,14 +10,14 @@ const {isAuth,Features}=require('../Middleware/isAuth');
 //         console.log(req.body)
 //         savedLink.updateOne({userId:req.user.id},{$pull:{saved:req.body.link}})
 //                  .then(data=>{
-//                      res.json(data)
+                     
 //                  })
 //                  .catch(err=>{
 //                      console.log(err)
 //                  })
 //     }
 //     else if(req.body.button==="save"){
-//         savedLink.findOneAndUpdate({userId:req.user.id},{$addToSet:{saved:req.body.link}},{new:true,upsert:true})
+//         savedLink.updateOne({userId:req.user.id},{$addToSet:{saved:req.body.link}},{new:true,upsert:true})
 //                  .then(data=>{
 //                      console.log(data)
 //                      res.json(data);
@@ -29,9 +29,11 @@ const {isAuth,Features}=require('../Middleware/isAuth');
 // })
 
 router.post('/save',Features,(req,res,next)=>{
+    console.log(req.body);
     if(req.body.button==="unsave"){
-        Link.updateOne({Link:req.body.link},{$pull:{saved:req.user.id}},)
+        Link.updateOne({Department:req.body.Department,Link:req.body.Link},{$pull:{saved:req.user.id}},)
                       .then(data=>{
+                          console.log(data)
                           res.json(data)
                       })
                       .catch(err=>{
@@ -39,7 +41,7 @@ router.post('/save',Features,(req,res,next)=>{
                       })
     }
     else if(req.body.button==="save"){
-        Link.updateOne({Link:req.body.link},{$addToSet:{saved:req.user.id}},{new:true,upsert:true})
+        Link.updateOne({Department:req.body.Department,Link:req.body.Link},{$addToSet:{saved:req.user.id}},{new:true})
                              .then(data=>{
                                  res.json(data);
                              })
@@ -49,4 +51,4 @@ router.post('/save',Features,(req,res,next)=>{
     }
 })
 
-module.exports=router
+module.exports=router;

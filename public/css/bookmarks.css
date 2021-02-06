@@ -1,5 +1,14 @@
 body{
+    background: url("../images/background/red_back-home.png");
     background-color: #000000;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;  
+    background: transparent;  
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background: #2a2f32;
   }
   .back-cover {
     box-sizing: border-box;
@@ -34,6 +43,8 @@ body{
     cursor: pointer;
   }
   .navigation ul li a{
+    height: 100%;
+    width: 100%;
     text-decoration: none;
     color: #BEBDBE;
   }
@@ -82,6 +93,7 @@ body{
     margin: 30px 0px;
 }
 .saved-container a{
+    /* margin-top: 10px; */
     border: 1px solid #000000;
     cursor: pointer;
     /* margin: 0px 10px; */
@@ -92,27 +104,44 @@ body{
     border-bottom: 1px solid #BEBDBE;
 }
 .saved-body{
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem;
+    background:linear-gradient(to right bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.1));
+    padding: 30px 20px 20px 20px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 10px 0px;
     width: 100%;
-    height:270px;
-    background-color: #000000;
+    height:280px;
 }
 .saved-cards{
-    text-align: center;
-    opacity: 0.2;
-    background-color: #2a2f32;
+    padding: 10px;
+    opacity: 1;
+    background-color: #0f0f0f;
     float: left;
-    width: 225px;
-    height: 250px;
-    margin: 0px 10px;
-    border-radius: 5px;
+    width: 150px;
+    height: 225px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 1rem;
 }
 .saved-cards:hover{
     opacity: 0.5;
+}
+.saved-cards a{
+  border: none;
+  color: #BEBDBE;
+}
+.saved-cards a:hover{
+  text-decoration: none;
+}
+.saved-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.saved-image img{
+
+  width:100px;
+  height:100px;
 }
 
  

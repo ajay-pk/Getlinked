@@ -34,6 +34,8 @@ body{
     cursor: pointer;
   }
   .navigation ul li a{
+    height: 100%;
+    width: 100%;
     text-decoration: none;
     color: #BEBDBE;
   }
@@ -136,6 +138,8 @@ align-items: center;
     border-radius: 15px;
 }
 .mail-icon{ 
+    width: 75px;
+    height: 75px;
     padding-top: 2%;
     text-align: center;
     margin: 0px auto;
