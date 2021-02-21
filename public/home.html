@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get-Linked</title>
@@ -15,51 +13,56 @@
 </head>
 <body>
     <div cass="back-cover">
-        <div class="navigation">
+    <div class="nav-small d-block d-md-none">
+        <a href="#"><img class="small-logo d-block d-md-none float-right" src="images/logo/general-logo/Group_12.png"></a>
+        <div id="mySidepanel" class="sidepanel d-block d-md-none">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="home.html"><i class="la la-home active"></i> Home</a>
+            <a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a>
+            <a href="#"><i class="la la-search"></i> Search</a>
+            <a href="#"><i class="la la-user"></i> User</a>
+        </div>
+        <button class="openbtn d-block d-md-none float-left" onclick="openNav()">&#9776; </button>
+    </div>
+        <div class="navigation d-none d-md-block">
             <ul id="navigation">
-                <li><a href="home.html"><i class="la la-home active"></i> Home</a></li>
-                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a></li>
+                <li><a href="home.html"><i class="la la-home active"></i><span class="d-none d-md-block">Home</span></a></li>
+                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i><span class="d-none d-md-block">Bookmarks</span></a></li>
                 <a href="#"><img class="logo" src="images/logo/general-logo/Group_12.png"></a>
-                <li class=""><a href="#"><i class="la la-search"></i> Search</a></li>
-                <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
+                <li class=""><a href="#"><i class="la la-search"></i><span class="d-none d-md-block">Search</span></a></li>
+                <li class=""><a href="#"><i class="la la-user"></i><span class="d-none d-md-block">User</span></a></li>
             </ul>
         </div>
             <input class="search-box" id="search-box" type="text" placeholder="Search for links">
-            
         <div class="filter-container">
-
-            
-       
-         <form>
-            <label for="Department">Department</label>
-            <select name="Department" id="Department">
+        <form>
+            <label for="Department">Choose Your Department:</label>
+            <select name="Department" id="Department1">
                 <option value="ECE">ECE</option>
                 <option value="EEE">EEE</option>
                 <option value="CSE">CSE</option>
                 <option value="Mech">Mech</option>
                 <option value="Civil">Civil</option>
             </select>
-           
+            <input type="submit" value="Update">
         </form>
-
-        <form action='#'>
-            <label for="searchby">Search by</label>
-            <select name="searchby" id="searchby">
-                <option value="topic">Topic</option>
-                <option value="subjectname">Subject</option>
-                
+        <form>
+            <label for="Department">Choose Your Department:</label>
+            <select name="Department" id="Department2">
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="CSE">CSE</option>
+                <option value="Mech">Mech</option>
+                <option value="Civil">Civil</option>
             </select>
-          
-        </form> 
-</div>
-
-
+            <input type="submit" value="Update">
+        </form>
+        </div>
 
         <a href="submit.html" data-tooltip title="Upload links here!"><img class="upload-icon d-block d-sm-none" src="images/icons/home page mobile/upload.svg"></a>
         <div class="suggestion-container">
             <div class="suggestion-info">For personalised suggestions, Log in using <a href="SignIn.html">Google</a></div>
             <div class="suggestion-outer-box">
-                <div class="search-results">Search results</div>
             <div class="suggestion-box " id="cardDetails">
                 
             </div>   

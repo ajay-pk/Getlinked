@@ -1,3 +1,11 @@
+function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+  }
+  
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
 const bookmark_api="http://localhost:3000/Bookmarks";
 const bookmarks=new Http;
 const uploaded_api="http://localhost:3000/Your-Bookmarks";
