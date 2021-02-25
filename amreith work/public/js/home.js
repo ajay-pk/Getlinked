@@ -1,7 +1,20 @@
-
+function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+  }
+  
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
+  
 $(function(){
     $('[data-tooltip').tooltip({placement:'bottom'});
   });
+
+
+
+
+
 
 // document.getElementById("user-icon").onclick = function() {displayUser()};
 // function displayUser() {
@@ -53,6 +66,8 @@ function showData(data){
     });
     return template;
 }
+
+
 
 // getLink(api_url)
 //        .then(data=>{
@@ -122,14 +137,115 @@ function showData(data){
 //            console.log(err);
 //        })
 
+// $(document).ready(function () {
+    
+//     $("#search-box").autocomplete({
+//         source: async function(request, response) {
+//             $.ajax({
+//                 url: "/search",
+//                 dataType: "json",
+//                 data: "topic=" + request.term,
+//                 success: function (data) {
+                    
+//                     $("#cardDetails").empty();
+//                     let template=``
+//                     data.forEach(element =>{
+//                         template+=`
+//                         <div class="card-suggestion">
+//                         <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
+//                         <i class="info-suggestion float-right las la-info-circle" id="info"></i>
+//                             <a href="${element.Link}" target="_blank"><div class="card-info">
+//                                 ${element.Department}<br>
+//                                 ${element.SubjectName}<br>
+//                                 ${element.Topic}
+//                             </div>
+//                             </a>
+//                         </div>`   
+//                     })
+//                     document.getElementById("cardDetails").innerHTML = template;
+//                     // response($.map(data, function (item) {
+//                     //     console.log(item);
+//                     //     return {
+//                     //         label: item.Topic,
+//                     //         value: item.Topic,
+//                     //         id:item._id
+//                     //     };
+//                     // }));
+    
+//                 console.log(data);
+//                 }});
+
+//             // console.log($(request.term));
+//             // let data = await fetch(`http://localhost:3000/search?topic=${request.term}`)
+//             //     .then(results =>{
+//             //         console.log(results);
+//             //         results.json()
+//             //     })
+//             //     .then(results =>
+//             //          results.map(result => {
+//             //         return { label: result.Topic, value: result.Topic, id: result._id };
+//             //     }));
+//             // console.log(data);
+//             // response(data);
+        
+// },
+//         minLength: 2,
+//         select: function(event, ui) 
+//         {
+//             $.ajax({
+//                 url: `/getLink/${ui.item.id}`,
+//                 dataType: "json",
+//                 // data: "/" + request.term,
+//                 success: function (data) {
+//                     // response($.map(data, function (item) {
+//                     //     console.log(item);
+//                     //     return {
+//                     //         label: item.Topic,
+//                     //         value: item.Topic,
+//                     //         id:item._id
+//                     //     };
+//                     // }));
+    
+//                 console.log(data);
+//                 }});
+//         //     fetch(`http://localhost:3000/getLink/${ui.item.id}`)
+//         //         .then(result =>{
+//         //             console.log(result);
+//         //          })
+//         //         .then(result => {
+//         //             $("#cardDetails").empty();
+//         //             result.forEach(Topic => {
+//         //                 $("#search-result").append(`<li>${Topic}</li>`);
+//         //             });
+//         //         });
+//         }
+//     });
+
+// })
+
 $(document).ready(function () {
+    console.log($( "#searchby" ).val())
+
+function displayVals() {
+    var singleValues = $( "#searchby" ).val();
+    var dep= $( "#Department" ).val() 
+   console.log(singleValues);
+   console.log(dep);
+    
+ 
+    if ($( "#searchby" ).val()=="topic"){
+        
     $("#search-box").autocomplete({
+        
         source: async function(request, response) {
             $.ajax({
-                url: "/search",
+                url: "/searchbytopic",
                 dataType: "json",
-                data: "topic=" + request.term,
+                data: "topic=" + request.term +"&&department="+dep,
+               
                 success: function (data) {
+                    
+                    
                     $("#cardDetails").empty();
                     let template=``
                     data.forEach(element =>{
@@ -203,5 +319,94 @@ $(document).ready(function () {
         //         });
         }
     });
-});
+    }
+    else if($( "#searchby" ).val()=="subjectname"){
+    $("#search-box").autocomplete({
+        
+        source: async function(request, response) {
+            $.ajax({
+                url: "/searchbysubjectname",
+                dataType: "json",
+                data: "subjectname=" + request.term,
+                success: function (data) {
+                    
+                    
+                    $("#cardDetails").empty();
+                    let template=``
+                    data.forEach(element =>{
+                        template+=`
+                        <div class="card-suggestion">
+                        <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
+                        <i class="info-suggestion float-right las la-info-circle" id="info"></i>
+                            <a href="${element.Link}" target="_blank"><div class="card-info">
+                                ${element.Department}<br>
+                                ${element.SubjectName}<br>
+                                ${element.Topic}
+                            </div>
+                            </a>
+                        </div>`   
+                    })
+                    document.getElementById("cardDetails").innerHTML = template;
+                    // response($.map(data, function (item) {
+                    //     console.log(item);
+                    //     return {
+                    //         label: item.Topic,
+                    //         value: item.Topic,
+                    //         id:item._id
+                    //     };
+                    // }));
+    
+                console.log(data);
+                }});
+
+            // console.log($(request.term));
+            // let data = await fetch(`http://localhost:3000/search?topic=${request.term}`)
+            //     .then(results =>{
+            //         console.log(results);
+            //         results.json()
+            //     })
+            //     .then(results =>
+            //          results.map(result => {
+            //         return { label: result.Topic, value: result.Topic, id: result._id };
+            //     }));
+            // console.log(data);
+            // response(data);
+        
+},
+        minLength: 2,
+        select: function(event, ui) 
+        {
+            $.ajax({
+                url: `/getLink/${ui.item.id}`,
+                dataType: "json",
+                // data: "/" + request.term,
+                success: function (data) {
+                    // response($.map(data, function (item) {
+                    //     console.log(item);
+                    //     return {
+                    //         label: item.Topic,
+                    //         value: item.Topic,
+                    //         id:item._id
+                    //     };
+                    // }));
+    
+                console.log(data);
+                }});
+        //     fetch(`http://localhost:3000/getLink/${ui.item.id}`)
+        //         .then(result =>{
+        //             console.log(result);
+        //          })
+        //         .then(result => {
+        //             $("#cardDetails").empty();
+        //             result.forEach(Topic => {
+        //                 $("#search-result").append(`<li>${Topic}</li>`);
+        //             });
+        //         });
+        }
+    });
+}}
+$( "select" ).change( displayVals );
+displayVals();
+})
+
 
