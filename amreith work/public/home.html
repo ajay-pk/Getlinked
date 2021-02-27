@@ -13,20 +13,31 @@
 </head>
 <body>
     <div cass="back-cover">
-        <div class="navigation">
+    <div class="nav-small d-block d-md-none">
+        <a href="#"><img class="small-logo d-block d-md-none float-right" src="images/logo/general-logo/Group_12.png"></a>
+        <div id="mySidepanel" class="sidepanel d-block d-md-none">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="home.html"><i class="la la-home active"></i> Home</a>
+            <a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a>
+            <a href="#"><i class="la la-search"></i> Search</a>
+            <a href="#"><i class="la la-user"></i> User</a>
+        </div>
+        <button class="openbtn d-block d-md-none float-left" onclick="openNav()">&#9776; </button>
+    </div>
+        <div class="navigation d-none d-md-block">
             <ul id="navigation">
-                <li><a href="home.html"><i class="la la-home active"></i> Home</a></li>
-                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i> Bookmarks</a></li>
+                <li><a href="home.html"><i class="la la-home active"></i><span class="d-none d-md-block">Home</span></a></li>
+                <li class=""><a href="bookmarks.html"><i class="la la-bookmark"></i><span class="d-none d-md-block">Bookmarks</span></a></li>
                 <a href="#"><img class="logo" src="images/logo/general-logo/Group_12.png"></a>
-                <li class=""><a href="#"><i class="la la-search"></i> Search</a></li>
-                <li class=""><a href="#"><i class="la la-user"></i> User</a></li>
+                <li class=""><a href="#"><i class="la la-search"></i><span class="d-none d-md-block">Search</span></a></li>
+                <li class=""><a href="#"><i class="la la-user"></i><span class="d-none d-md-block">User</span></a></li>
             </ul>
         </div>
             <input class="search-box" id="search-box" type="text" placeholder="Search for links">
         <div class="filter-container">
         <form>
             <label for="Department">Choose Your Department:</label>
-            <select name="Department" id="Department">
+            <select name="Department" id="Department1">
                 <option value="ECE">ECE</option>
                 <option value="EEE">EEE</option>
                 <option value="CSE">CSE</option>
@@ -37,7 +48,7 @@
         </form>
         <form>
             <label for="Department">Choose Your Department:</label>
-            <select name="Department" id="Department">
+            <select name="Department" id="Department2">
                 <option value="ECE">ECE</option>
                 <option value="EEE">EEE</option>
                 <option value="CSE">CSE</option>
