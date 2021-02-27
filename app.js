@@ -11,7 +11,7 @@ const connectDB= require('./config/db');
 const clickDataRoutes=require('./Routes/clickDataRouter')
 const savedLinkRoutes=require('./Routes/savedLinkRouter')
 const cors = require('cors');
-
+const pdfRoutes=require('./Routes/pdfRouter');
 
 //Sessions data stored in Mongodb
 const MongoStore=require('connect-mongo')(session);
@@ -62,6 +62,7 @@ app.use(linkRoutes);
 //click data handle
 app.use(clickDataRoutes);
 app.use(savedLinkRoutes);
+app.use(pdfRoutes)
 
 
 app.listen(port, () => {

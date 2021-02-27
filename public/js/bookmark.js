@@ -15,7 +15,7 @@ bookmarks.get(bookmark_api)
         console.log(Data)
         let template=``
         Data.forEach(element => {
-        if(element.LinkType==="video"){
+        if(element.LinkType==="website"){
         template+=`
         <div class="saved-cards" href="${element.Link}" target="_blank">
             <div class="saved-image">
@@ -36,9 +36,10 @@ bookmarks.get(bookmark_api)
 uploaded.get(uploaded_api)
     .then(Data=>{
         uploadArray=Data.uploadLinks
+        console.log(uploadArray);
         let template=``
         uploadArray.forEach(element=>{
-        if(element.LinkType==="video"){
+        if(element.LinkType==="website"){
             template+=`
             <div class="saved-cards" href="${element.Link}" target="_blank">
                 <div class="saved-image">
@@ -78,3 +79,26 @@ $(document).ready(function(){
     }); 
 });
 
+function getPDF() {
+    return axios.get(`http://localhost:3000/mock`, {
+      responseType: 'arraybuffer',
+      headers: {
+        'Accept': 'application/pdf'
+      }
+    })
+}
+
+function savePDF(){
+    console.log('save')
+   return getPDF() // API call
+     .then((response) => {
+       const blob = new Blob([response.data], {type: 'application/pdf'})
+       const link = document.createElement('a')
+       link.href = window.URL.createObjectURL(blob)
+       link.download = `SavedLinks.pdf`
+       link.click()
+     })
+   .catch(err => {
+       console.log('error while Handling')
+ })
+}
