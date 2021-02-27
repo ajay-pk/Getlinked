@@ -1,0 +1,23 @@
+body{
+    background: url("../images/background/red_back-home.png");
+    background-color: #000000;
+    padding: 0;
+    margin: 0;
+  }
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background-color:black;
+}
+.header img{
+    width:223px;
+    height: 100px;
+}
+.links-box{
+    width: 90%;
+    height: 200px;
+    margin: 10px auto 10px auto;
+}
