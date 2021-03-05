@@ -54,6 +54,7 @@ function showData(data){
         template+=` 
         <div class="card-suggestion">
         <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
+        <i class="las la-ban save-suggestion float-right"></i>
         <i class="info-suggestion float-right las la-info-circle" id="info"></i>
             <a href="${element.Link}" target="_blank"><div class="card-info">
                 ${element.Department}<br>

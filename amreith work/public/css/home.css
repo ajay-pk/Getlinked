@@ -272,7 +272,7 @@ form input{
   margin: 0px auto 10px auto ;
   flex-shrink: 0;
   width: 95%;
-  height: 80px;
+  /* height: 80px; */
   overflow: visible;
   background-color: #000000;
   border-radius: 15px;
@@ -337,9 +337,9 @@ form input{
 }
 .card-info{
   text-overflow: ellipsis;
-  width: 80%;
-  /* height: 100%; */
-  margin: 0px auto;
+  width: 50%;
+  height: 100px;
+  margin: 0px 10%;
   /* background-color: #d14747; */
 }
 /* .card-d-1, .card-d-2, .card-d-3{

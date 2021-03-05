@@ -23,6 +23,7 @@ bookmarks.get(bookmark_api)
             </div>
             <a href="${element.Link}"><b>${element.Topic}</b></a><br>
             <a href="${element.Link}">${element.SubjectName}</a>
+            <i class="las la-ban report-btn"></i>
         </div>
         `
         }
@@ -41,12 +42,12 @@ uploaded.get(uploaded_api)
         uploadArray.forEach(element=>{
         if(element.LinkType==="website"){
             template+=`
-            <div class="saved-cards" href="${element.Link}" target="_blank">
+            <div class="saved-cards" href="${element.Link}">
                 <div class="saved-image">
                 <img src="../images/bookmarks/video.svg">
                 </div>
-                <a href="${element.Link}"><b>${element.Topic}</b></a><br>
-                <a href="${element.Link}">${element.SubjectName}</a>
+                <a href="${element.Link}" target="_blank"><b>${element.Topic}</b></a><br>
+                <a href="${element.Link}" target="_blank">${element.SubjectName}</a>
             </div>
             `
             }
@@ -69,6 +70,14 @@ $(document).ready(function(){
         });
         }
     }); 
+});
+$(document).ready(function(){
+    $(".saved-body").mouseover(function(){
+        $(".report-btn").css("display","block")
+    });
+    $(".saved-body").mouseout(function(){
+        $(".report-btn").css("display","none")
+    });
 });
 $(document).ready(function(){
     $("#see-all-your").click(function(){

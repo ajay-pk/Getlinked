@@ -186,7 +186,21 @@ body{
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px; */
 }
+.report-btn{
+  display: none;
+  font-size: 40px;
+  color: #BEBDBE;
+  margin: 10px 10px 30px 10px;
+  padding: 5px;
+  float: right;
+}
+.report-btn:hover{
+  border-radius: 50%;
+  background-color: #d14747;
+  color: #000000;
+}
 .saved-cards{
+    text-align: center;
     padding: 10px;
     opacity: 1;
     background-color: #0f0f0f;
@@ -197,7 +211,8 @@ body{
     border-radius: 1rem;
 }
 .saved-cards:hover{
-    opacity: 0.5;
+    cursor: pointer;
+    background-color:#2a2f32;
 }
 .saved-cards a{
   border: none;
