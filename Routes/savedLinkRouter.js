@@ -50,5 +50,27 @@ router.post('/save',Features,(req,res,next)=>{
                              })
     }
 })
+//Report feature api
+router.post('/report',(req,res)=>{
+    Link.findOneAndUpdate({Department:req.body.Department,Link:req.body.Link}, { $inc: {report:1}},{new:true})
+        .then((data,err)=>{
+            if(data){
+                return data
 
+            }
+            else throw 'Error while finding'
+            
+        })
+        .then((data,err)=>{
+            if(data.report>=3){
+                Link.findByIdAndDelete({_id:data._id})
+                    .then((data,err)=>{
+                        if (err)throw 'Report failed'
+                    })
+            }
+        })
+        .catch(err=>{
+            res.json(err);
+        })
+})
 module.exports=router;

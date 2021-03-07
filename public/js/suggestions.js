@@ -44,7 +44,10 @@ card.addEventListener('click',(e)=>{
       Department:'',
       Link:' '
    }
+   let report={Department:'',Link:'',no:1
+   }
    const save_api="http://localhost:3000/save"
+   const report_api='http://localhost:3000/report'
    if(e.target.className==="card-info"){
       let d = new Date(); // for now
     //   console.log(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`)
@@ -101,6 +104,19 @@ card.addEventListener('click',(e)=>{
    }
    else if(e.target.attributes[1].nodeValue==="info"){
       console.log("Info veyy!!")
+   }
+   else if(e.target.attributes[1].nodeValue==="report"){
+      report.Department=e.path[1].lastElementChild.innerText.trim().split("\n")[0]
+      report.Link=e.target.parentElement.lastElementChild.attributes[0].nodeValue;
+      console.log(report)
+      const Reportlink=new Http
+      Reportlink.ajaxPost(report_api,report)
+                .then(data=>{
+                   console.log(data)
+                })
+                .catch(err=>{
+                   console.log(err)
+                })
    }
    // else if(e.target.className==="save-suggestion"){
    //    console.log('saved ehy!!')
