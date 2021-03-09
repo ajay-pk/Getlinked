@@ -42,7 +42,11 @@ const LinkdetailsSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
     },
-    saved:[String]
+    saved:[String],
+    report:{
+        type:Number,
+        default:0
+    }
 });
 
 /*const LinkSchema=new mongoose.Schema({
