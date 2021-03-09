@@ -272,12 +272,14 @@ form input{
   margin: 0px auto 10px auto ;
   flex-shrink: 0;
   width: 95%;
-  /* height: 80px; */
+  height: 80px;
   overflow: visible;
   background-color: #000000;
   border-radius: 15px;
+  transition: 100ms ease-in;
 }
 .card-suggestion:hover{
+  transform: scale(1.02);
   background:linear-gradient(to right bottom,rgba(255,255,255,0.3),rgba(255,255,255,0.2));
 }
 /* .click{

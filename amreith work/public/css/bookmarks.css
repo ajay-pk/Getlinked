@@ -209,8 +209,10 @@ body{
     height: 225px;
     margin: 10px 10px 10px 10px;
     border-radius: 1rem;
+    transition: 100ms ease-in;
 }
 .saved-cards:hover{
+    transform: scale(1.07);
     cursor: pointer;
     background-color:#2a2f32;
 }
@@ -232,6 +234,7 @@ body{
   height:100px;
 }
 .export-button{
+  transition: 100ms ease-in;
   border-radius: 3rem;
   float: right;
   width: 200px;
@@ -243,6 +246,9 @@ body{
 }
 .export-button:focus{
   outline: none;
+}
+.export-button:hover{
+  transform: scale(1.05);
 }
 
 @media only screen and (min-width: 768px) and (max-width:1024px){
