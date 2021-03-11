@@ -52,9 +52,9 @@ function showData(data){
     let template=` `   
     data.forEach(element => {
         template+=` 
-        <div class="card-suggestion">
+        <div class="card-suggestion" id="${element._id}">
         <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
-        <i class="las la-ban save-suggestion float-right"></i>
+        <i class="las la-ban save-suggestion float-right" id="report"></i>
         <i class="info-suggestion float-right las la-info-circle" id="info"></i>
             <a href="${element.Link}" target="_blank"><div class="card-info">
                 ${element.Department}<br>
@@ -79,27 +79,27 @@ function showData(data){
 //            console.log(err);
 //        })
 
-// const user_api="http://localhost:3000/userDetails";
-// const userData=new Http;
-// userData.get(user_api)
-// .then(data=>{
-//     console.log(data)
-//     let template2 =` `
-//     if(data.status==="Please sign-in to use"){
+const user_api="http://localhost:3000/userDetails";
+const userData=new Http;
+userData.get(user_api)
+.then(data=>{
+    console.log(data)
+    let template2 =` `
+    if(data.status==="Please sign-in to use"){
      
-//      template2 = `<div>Want perks of Get-Linked?</div>
-//      <a href="SignIn.html">Log-In</a>`
-//     }
-//     else{
-//     template2=` <div><img class="profile-pic" src="${data.image}"></div>
-//     <a>${data.displayName}</a>
-//     <a>Email</a>
-//     <a>Others</a>
-//     <hr class="just-line d-none d-sm-block">
-//     <a href="http://localhost:3000/logout">SignOut</a> `
-//     }
-//     document.getElementById("user-details").innerHTML = template2;
-// })
+     template2 = `<div>Want perks of Get-Linked?</div>
+     <a href="SignIn.html">Log-In</a>`
+    }
+    else{
+    template2=` <div><img class="profile-pic" src="${data.image}"></div>
+    <a>${data.displayName}</a>
+    <a>Email: ${data.email}</a>
+    <a>Others</a>
+    <hr class="just-line d-none d-sm-block">
+    <a href="http://localhost:3000/logout">SignOut</a> `
+    }
+    document.getElementById("user-login-data").innerHTML = template2;
+})
 
 // .catch(err=>{
 //     console.log(err);
@@ -229,12 +229,12 @@ $(document).ready(function () {
 
 function displayVals() {
     var singleValues = $( "#searchby" ).val();
-    var dep= $( "#Department" ).val() 
+    var dep= $( "#Department1" ).val() 
    console.log(singleValues);
    console.log(dep);
     
  
-    if ($( "#searchby" ).val()=="topic"){
+    if ($( "#Department1" ).val()=="topic"){
         
     $("#search-box").autocomplete({
         
@@ -251,7 +251,7 @@ function displayVals() {
                     let template=``
                     data.forEach(element =>{
                         template+=`
-                        <div class="card-suggestion">
+                        <div class="card-suggestion" id="${element._id}">
                         <i class="save-suggestion float-left la la-bookmark" id="saved"></i>
                         <i class="info-suggestion float-right las la-info-circle" id="info"></i>
                             <a href="${element.Link}" target="_blank"><div class="card-info">
@@ -321,7 +321,7 @@ function displayVals() {
         }
     });
     }
-    else if($( "#searchby" ).val()=="subjectname"){
+    else if($( "#Department2" ).val()=="subjectname"){
     $("#search-box").autocomplete({
         
         source: async function(request, response) {

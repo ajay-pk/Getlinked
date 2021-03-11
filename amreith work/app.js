@@ -11,7 +11,7 @@ const connectDB= require('./config/db');
 const clickDataRoutes=require('./Routes/clickDataRouter')
 const savedLinkRoutes=require('./Routes/savedLinkRouter')
 const cors = require('cors');
-
+const pdfRoutes=require('./Routes/pdfRouter');
 
 //Sessions data stored in Mongodb
 const MongoStore=require('connect-mongo')(session);
@@ -20,6 +20,8 @@ const MongoStore=require('connect-mongo')(session);
 require('./Config/passport')(passport);
 //DB connection
 connectDB();
+
+
 
 
 const app=express();
@@ -31,9 +33,23 @@ app.use(
       methods: "GET" // only allow GET requests
     })
   );
-
 const sessionStore = new MongoStore({ mongooseConnection:mongoose.connection, collection: 'sessions' });
+let setCache = function (req, res, next) {
 
+  const period = 60 * 5 
+
+
+  if (req.method == 'GET') {
+    res.set('Cache-control', `public, max-age=${period}`)
+  } else {
+
+    res.set('Cache-control', `no-store`)
+  }
+
+
+  next()
+}
+app.use(setCache)
 app.use(session({
     secret: keys.secretKey,
     resave: false,
@@ -62,8 +78,11 @@ app.use(linkRoutes);
 //click data handle
 app.use(clickDataRoutes);
 app.use(savedLinkRoutes);
+app.use(pdfRoutes)
+
 
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
+  
