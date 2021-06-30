@@ -8,3 +8,4 @@ We engineers have a habit of preparing last minute for tests and exams. In recen
 To solve this, we have created this wonderful platform.
 
 ### What?
+A web based platform written in NodeJs. 
